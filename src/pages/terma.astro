@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbSchema, site } from '../data/site';
+
+const title = 'Terma Penggunaan | Kedai Penapis Air Kesihatan';
+const description = 'Terma penggunaan, batas maklumat dan penjelasan sebut harga untuk laman Kedai Penapis Air Kesihatan.';
+const path = '/terma/';
+const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Terma penggunaan', href: path }];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)} bodyClass="legal-page">
+  <div class="page-shell article-shell">
+    <Breadcrumbs items={crumbs} />
+    <header class="article-header"><p class="eyebrow">Notis undang-undang</p><h1>Terma Penggunaan</h1><p class="article-deck">Gunakan laman ini sebagai maklumat awal. Produk, stok, keserasian dan skop kerja perlu disahkan secara khusus.</p><div class="article-meta"><time datetime="2026-08-20">Dikemas kini 20 Ogos 2026</time></div></header>
+    <article class="prose">
+      <h2>1. Maklumat umum</h2>
+      <p>Kandungan laman ini disediakan dengan niat untuk membantu pelanggan memahami pilihan penapis air, penyelenggaraan asas dan cara membuat pertanyaan. Ia bukan diagnosis teknikal jarak jauh, nasihat perubatan atau jaminan bahawa sesuatu produk atau servis sesuai untuk setiap keadaan.</p>
+
+      <h2>2. Produk, stok dan keserasian</h2>
+      <p>Nama kategori, contoh atau panduan tidak mengesahkan bahawa sesuatu model berada dalam stok. Keserasian filter, cartridge, alat ganti dan servis bergantung pada unit tepat serta pemeriksaan yang sesuai. Sahkan semua butiran sebelum membeli atau bergerak ke kedai.</p>
+
+      <h2>3. Harga dan sebut harga</h2>
+      <p>Harga tidak dipaparkan sebagai harga tetap pada laman ini kerana model, komponen dan skop belum disahkan. Anggaran awal melalui mesej boleh berubah selepas pemeriksaan. Sebut harga, caj, terma pembayaran, penghantaran atau pemasangan hanya terpakai apabila diberikan secara khusus untuk urusan anda.</p>
+
+      <h2>4. Prestasi produk</h2>
+      <p>Prestasi penapisan berbeza mengikut model, keadaan penggunaan dan penyelenggaraan. Sebarang dakwaan pengeluar hendaklah dibaca bersama helaian spesifikasi, standard ujian, skop sijil dan had yang berkaitan dengan model tepat. Laman ini tidak menjamin penyingkiran semua bahan cemar atau hasil kesihatan tertentu.</p>
+
+      <h2>5. Servis dan keselamatan</h2>
+      <p>Jangan membuka sistem bertekanan atau peralatan elektrik tanpa arahan dan kemahiran yang sesuai. Jika terdapat kebocoran besar, kerosakan elektrik, bau terbakar atau keadaan membimbangkan, hentikan penggunaan dengan selamat dan dapatkan bantuan. Ketersediaan servis, liputan, alat ganti dan tempoh siap perlu disahkan.</p>
+
+      <h2>6. Pautan pihak ketiga</h2>
+      <p>Laman ini mengandungi pautan ke WhatsApp, Google Maps, Facebook dan sumber rujukan lain. Kami tidak mengawal ketersediaan, kandungan atau amalan privasi laman pihak ketiga.</p>
+
+      <h2>7. Hak cipta</h2>
+      <p>Reka bentuk, teks asal, ilustrasi dan identiti laman ini tidak boleh diterbitkan semula untuk tujuan komersial tanpa kebenaran, kecuali setakat yang dibenarkan undang-undang.</p>
+
+      <h2>8. Hubungi kami</h2>
+      <p>Untuk pertanyaan tentang terma ini, hubungi {site.name} melalui <a href={`mailto:${site.email}`}>{site.email}</a> atau <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>.</p>
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactBand from '../components/ContactBand.astro';
+import { absoluteUrl, breadcrumbSchema, site, whatsappUrl } from '../data/site';
+
+const title = 'Cara Pilih Penapis Air Rumah di Pasir Gudang | Panduan Kedai';
+const description = 'Pilih penapis air rumah berdasarkan kegunaan, ruang, penjagaan dan kos pemilikan. Dapatkan cadangan terus daripada kedai di Pasir Gudang.';
+const path = '/penapis-air-rumah/';
+const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Penapis air rumah', href: path }];
+const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@type': 'Service', name: 'Bantuan memilih penapis air rumah', url: absoluteUrl(path), provider: { '@id': `${site.url}/#business` }, description }];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schema}>
+  <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
+  <header class="page-hero">
+    <div class="page-shell page-hero-grid">
+      <div>
+        <p class="eyebrow">Pilih penapis air rumah</p>
+        <h1>Yang “terbaik” ialah yang sesuai digunakan dan mampu dijaga.</h1>
+        <p class="page-hero-copy">Jangan bermula dengan jumlah peringkat atau istilah teknologi. Bermula dengan air yang mahu digunakan, ruang yang ada, rutin keluarga dan komitmen penyelenggaraan.</p>
+      </div>
+      <aside class="page-hero-aside">
+        <strong>Mahu cadangan awal?</strong>
+        <p>Beritahu lokasi, jumlah pengguna, kegunaan utama dan bajet yang selesa.</p>
+        <a class="button" href={whatsappUrl('Salam, saya mahu memilih penapis air rumah. Lokasi: ____. Jumlah pengguna: ____. Kegunaan utama: ____. Bajet: ____.')} target="_blank" rel="noopener">Minta cadangan <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section surface-white" aria-labelledby="choose-title">
+    <div class="page-shell">
+      <div class="section-heading"><div><p class="eyebrow">Empat keputusan awal</p><h2 id="choose-title">Tentukan fungsi sebelum melihat model.</h2></div><p>Nama kategori boleh berbeza antara pengeluar. Gunakan soalan ini untuk menjelaskan apa yang rumah anda benar-benar perlukan.</p></div>
+      <div class="info-grid">
+        <article class="info-item"><span>01 · Kegunaan</span><h3>Minuman atau seluruh rumah?</h3><p>Sistem di titik minum dan sistem di laluan masuk rumah menyelesaikan keperluan yang berbeza.</p></article>
+        <article class="info-item"><span>02 · Ruang</span><h3>Di mana ia akan diletakkan?</h3><p>Periksa ruang kaunter, bawah sinki, sumber elektrik, saliran dan laluan paip sebelum memilih.</p></article>
+        <article class="info-item"><span>03 · Penjagaan</span><h3>Bagaimana filter diganti?</h3><p>Tanya jadual, harga anggaran, ketersediaan cartridge dan siapa yang boleh melakukan servis.</p></article>
+        <article class="info-item"><span>04 · Pemilikan</span><h3>Berapa kos sepanjang penggunaan?</h3><p>Nilai harga awal bersama filter, servis, elektrik dan syarat kontrak jika ada—bukan bayaran bulanan sahaja.</p></article>
+        <article class="info-item"><span>05 · Keupayaan</span><h3>Berapa ramai pengguna?</h3><p>Penggunaan harian, kadar aliran dan kapasiti perlu sesuai dengan rutin rumah, bukan sekadar angka besar.</p></article>
+        <article class="info-item"><span>06 · Bukti</span><h3>Apakah dakwaan yang disokong?</h3><p>Minta spesifikasi dan sijil untuk model tepat. Satu pensijilan tidak bermaksud semua bahan cemar ditapis.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="questions-title">
+    <div class="page-shell split-content">
+      <div>
+        <p class="eyebrow">Sebelum membeli</p>
+        <h2 id="questions-title">Soalan yang lebih penting daripada “berapa stage?”.</h2>
+        <p class="lede">Bilangan filter tidak menerangkan prestasi dengan sendiri. Bahan media, reka bentuk, kadar aliran, ujian model dan rutin penggantian lebih bermakna.</p>
+      </div>
+      <ul class="fact-list">
+        <li><strong>Tanya</strong><span>Model tepat dan tujuan sistem</span></li>
+        <li><strong>Tanya</strong><span>Jadual serta kos filter gantian</span></li>
+        <li><strong>Tanya</strong><span>Ruang, paip dan keperluan elektrik</span></li>
+        <li><strong>Tanya</strong><span>Waranti bertulis dan perkara yang dikecualikan</span></li>
+        <li><strong>Tanya</strong><span>Siapa menyediakan servis selepas jualan</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section surface-mint" aria-labelledby="compare-title">
+    <div class="page-shell">
+      <div class="section-heading"><div><p class="eyebrow">Banding secara adil</p><h2 id="compare-title">Simpan nota ini untuk setiap pilihan.</h2></div><p>Gunakan dimensi yang sama untuk membandingkan dua atau tiga model. Elakkan perbandingan berdasarkan slogan sahaja.</p></div>
+      <div class="comparison-list" role="list">
+        {['Harga awal atau syarat pelan', 'Kos filter dan servis', 'Saiz serta lokasi pemasangan', 'Kadar aliran dan kapasiti', 'Keperluan elektrik atau saliran', 'Waranti dan sokongan selepas jualan'].map((item, index) => (
+          <div role="listitem"><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface-white" aria-labelledby="next-title">
+    <div class="page-shell split-content">
+      <div><p class="eyebrow">Langkah seterusnya</p><h2 id="next-title">Bawa keperluan, bukan teka-teki.</h2><p class="lede">Kami boleh membantu menyusun soalan dan pilihan yang patut disemak. Model, harga, stok dan waranti akan disahkan semasa pertanyaan.</p></div>
+      <div class="simple-panel"><p><strong>Maklumat untuk dihantar:</strong></p><ul class="check-list"><li>Kawasan rumah</li><li>Jumlah pengguna</li><li>Kegunaan utama</li><li>Ruang pemasangan</li><li>Bajet yang selesa</li></ul><a class="button" href={whatsappUrl('Salam, saya mahu memilih penapis air rumah. Lokasi: ____. Jumlah pengguna: ____. Kegunaan: ____. Ruang: ____. Bajet: ____.')} target="_blank" rel="noopener">Hantar di WhatsApp <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+
+  <ContactBand heading="Pilih sistem yang anda sanggup jaga." copy="Beritahu cara rumah anda menggunakan air. Kami bantu anda memulakan perbandingan dengan soalan yang betul." message="Salam, saya mahu memilih penapis air rumah. Lokasi: ____. Jumlah pengguna: ____. Kegunaan utama: ____. Bajet: ____." />
+</BaseLayout>

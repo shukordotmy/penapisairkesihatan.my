@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbSchema, site, whatsappUrl } from '../data/site';
+
+const title = 'Hubungi Kedai Penapis Air Kesihatan | Pasir Gudang';
+const description = 'WhatsApp, telefon atau dapatkan arah ke Kedai Penapis Air Kesihatan di 84, Jalan Intan 12, Taman Cahaya Masai, Pasir Gudang.';
+const path = '/hubungi/';
+const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Hubungi', href: path }];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)}>
+  <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
+  <header class="contact-hero">
+    <div class="page-shell contact-hero-grid">
+      <div>
+        <p class="eyebrow eyebrow-light">Hubungi kedai</p>
+        <h1>Satu gambar boleh menjimatkan banyak soalan.</h1>
+        <p>Untuk semakan penapis atau servis, hantarkan gambar penuh unit, label model, lokasi dan perkara yang anda perlukan.</p>
+        <a class="button button-paper" href={whatsappUrl('Salam, saya ingin membuat pertanyaan. Lokasi: ____. Jenama/model: ____. Keperluan atau masalah: ____.')} target="_blank" rel="noopener">Buka WhatsApp <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="contact-methods">
+        <a href={`tel:${site.phoneHref}`}><span>Telefon</span><strong>{site.phoneDisplay}</strong><i aria-hidden="true">↗</i></a>
+        <a href={`mailto:${site.email}`}><span>E-mel</span><strong>{site.email}</strong><i aria-hidden="true">↗</i></a>
+        <a href={site.facebook} target="_blank" rel="noopener"><span>Facebook</span><strong>Penapis air shukor</strong><i aria-hidden="true">↗</i></a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section surface-white" aria-labelledby="location-title">
+    <div class="page-shell location-grid">
+      <div class="location-copy">
+        <p class="eyebrow">Lokasi kedai</p>
+        <h2 id="location-title">Taman Cahaya Masai, Pasir Gudang.</h2>
+        <address>{site.address.street}<br />{site.address.locality}<br />{site.address.postalCode} {site.address.city}, {site.address.state}</address>
+        <div class="cta-row">
+          <a class="button" href={site.directions} target="_blank" rel="noopener">Dapatkan arah <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href={`tel:${site.phoneHref}`}>Telefon dahulu</a>
+        </div>
+      </div>
+      <a class="location-card" href={site.directions} target="_blank" rel="noopener" aria-label="Buka arah ke Kedai Penapis Air Kesihatan di Google Maps">
+        <div class="location-map-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div class="map-pin" aria-hidden="true"><span></span></div>
+        <div class="location-card-label"><span>84, Jalan Intan 12</span><strong>Buka dalam Google Maps ↗</strong></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="before-title">
+    <div class="page-shell split-content">
+      <div><p class="eyebrow">Sebelum datang</p><h2 id="before-title">Sahkan waktu dan keperluan anda.</h2><p class="lede">Sumber direktori awam memaparkan waktu yang berbeza. Hubungi kami terlebih dahulu untuk waktu operasi terkini dan sama ada model atau komponen anda boleh disemak.</p></div>
+      <div class="simple-panel"><p><strong>Senarai ringkas:</strong></p><ul class="check-list"><li>Telefon atau WhatsApp dahulu</li><li>Bawa gambar atau model unit</li><li>Nyatakan masalah atau tujuan pembelian</li><li>Sahkan stok sebelum perjalanan</li></ul></div>
+    </div>
+  </section>
+</BaseLayout>

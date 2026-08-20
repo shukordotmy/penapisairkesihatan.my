@@ -1,0 +1,19 @@
+---
+import { site, whatsappUrl } from '../data/site';
+interface Props { heading: string; copy: string; message: string }
+const { heading, copy, message } = Astro.props;
+---
+
+<section class="contact-band" aria-labelledby="contact-band-title">
+  <div class="page-shell contact-band-inner">
+    <div>
+      <p class="eyebrow eyebrow-light">Bercakap dengan kedai</p>
+      <h2 id="contact-band-title">{heading}</h2>
+      <p>{copy}</p>
+    </div>
+    <div class="contact-band-actions">
+      <a class="button button-paper" href={whatsappUrl(message)} target="_blank" rel="noopener">WhatsApp {site.phoneDisplay} <span aria-hidden="true">↗</span></a>
+      <a class="text-link light-link" href={`tel:${site.phoneHref}`}>Atau telefon terus</a>
+    </div>
+  </div>
+</section>

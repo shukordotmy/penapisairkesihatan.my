@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbSchema, site } from '../data/site';
+
+const title = 'Notis Privasi | Kedai Penapis Air Kesihatan';
+const description = 'Notis privasi untuk penggunaan laman web Kedai Penapis Air Kesihatan dan pautan hubungan luaran.';
+const path = '/privasi/';
+const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Notis privasi', href: path }];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)} bodyClass="legal-page">
+  <div class="page-shell article-shell">
+    <Breadcrumbs items={crumbs} />
+    <header class="article-header"><p class="eyebrow">Notis undang-undang</p><h1>Notis Privasi</h1><p class="article-deck">Laman ini direka untuk memberi maklumat dan mengarahkan pertanyaan kepada saluran yang dipilih oleh pengguna.</p><div class="article-meta"><time datetime="2026-08-20">Dikemas kini 20 Ogos 2026</time></div></header>
+    <article class="prose">
+      <h2>1. Siapa kami</h2>
+      <p>Laman ini dikendalikan untuk {site.name} oleh {site.legalName} ({site.registration}). Alamat perniagaan ialah {site.address.display}.</p>
+
+      <h2>2. Data pada laman ini</h2>
+      <p>Laman ini ialah laman statik. Kami tidak menyediakan borang akaun, checkout atau borang hubungan dan tidak menetapkan kuki pemasaran melalui kod laman pada tarikh notis ini.</p>
+      <p>Penyedia hosting, rangkaian atau pelayar anda mungkin memproses data teknikal yang lazim untuk menyampaikan laman, seperti alamat IP, masa permintaan, halaman yang diminta, jenis pelayar dan maklumat keselamatan. Pemprosesan tersebut tertakluk kepada sistem serta dasar penyedia berkenaan.</p>
+
+      <h2>3. Apabila anda menggunakan pautan hubungan</h2>
+      <p>Pautan WhatsApp, telefon, e-mel, Facebook dan Google Maps membawa anda ke perkhidmatan pihak ketiga. Apabila anda memilih pautan tersebut, pihak berkenaan boleh memproses data mengikut dasar mereka. Hanya kongsi maklumat yang perlu untuk pertanyaan anda.</p>
+      <p>Untuk semakan penapis, kami mungkin meminta lokasi umum, gambar unit, jenama/model dan penerangan masalah. Elakkan memasukkan nombor kad pengenalan, butiran kewangan, nombor siri yang tidak diperlukan atau wajah individu dalam gambar.</p>
+
+      <h2>4. Tujuan penggunaan maklumat pertanyaan</h2>
+      <p>Maklumat yang anda hantar secara sukarela melalui saluran luaran boleh digunakan untuk menjawab pertanyaan, menyemak kesesuaian produk atau servis, menyediakan sebut harga, mengatur langkah seterusnya dan menyimpan rekod urusan yang munasabah.</p>
+
+      <h2>5. Penyimpanan dan perkongsian</h2>
+      <p>Tempoh penyimpanan bergantung pada tujuan urusan, keperluan rekod perniagaan dan undang-undang yang terpakai. Maklumat tidak sepatutnya dijual sebagai senarai pemasaran. Ia boleh dikongsi dengan penyedia perkhidmatan yang diperlukan untuk mengurus komunikasi atau memenuhi urusan, atau apabila dikehendaki undang-undang.</p>
+
+      <h2>6. Pilihan dan pertanyaan anda</h2>
+      <p>Anda boleh meminta pembetulan atau bertanya tentang maklumat yang anda telah hantar dengan menghubungi <a href={`mailto:${site.email}`}>{site.email}</a> atau <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>. Kami mungkin perlu mengesahkan konteks permintaan sebelum bertindak.</p>
+
+      <h2>7. Perubahan notis</h2>
+      <p>Notis ini boleh dikemas kini apabila ciri laman atau amalan perniagaan berubah. Tarikh semakan terkini akan dipaparkan di bahagian atas halaman.</p>
+    </article>
+  </div>
+</BaseLayout>

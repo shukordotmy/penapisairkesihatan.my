@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactBand from '../components/ContactBand.astro';
+import { breadcrumbSchema, site } from '../data/site';
+
+const title = 'Tentang Kedai Penapis Air Kesihatan | Pasir Gudang';
+const description = 'Kenali Kedai Penapis Air Kesihatan di Taman Cahaya Masai, dikendalikan oleh CAHAYA SUKMAR, sebuah perniagaan Johor yang berdaftar sejak 2008.';
+const path = '/tentang/';
+const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: path }];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)}>
+  <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
+  <header class="page-hero">
+    <div class="page-shell page-hero-grid">
+      <div><p class="eyebrow">Tentang perniagaan</p><h1>Kedai tempatan dengan hubungan selepas jualan.</h1><p class="page-hero-copy">Kedai Penapis Air Kesihatan ialah nama yang pelanggan kenal di Taman Cahaya Masai. Perniagaan ini dikendalikan oleh CAHAYA SUKMAR, entiti berdaftar di Johor.</p></div>
+      <aside class="page-hero-aside"><strong>Alamat yang sama</strong><p>Identiti kedai dan CAHAYA SUKMAR dipautkan melalui alamat awam yang konsisten di 84, Jalan Intan 12.</p><a class="button button-secondary" href={site.directions} target="_blank" rel="noopener">Lihat arah ke kedai <span aria-hidden="true">↗</span></a></aside>
+    </div>
+  </header>
+
+  <section class="section surface-white" aria-labelledby="identity-title">
+    <div class="page-shell split-content">
+      <div><p class="eyebrow">Identiti yang jelas</p><h2 id="identity-title">Nama kedai di hadapan. Perniagaan berdaftar di belakangnya.</h2><p class="lede">Kami memaparkan kedua-duanya supaya pelanggan tahu dengan siapa mereka berurusan tanpa mengubah nama kedai yang telah digunakan dalam carian setempat.</p></div>
+      <ul class="fact-list">
+        <li><strong>Nama kedai</strong><span>{site.name}</span></li>
+        <li><strong>Operator</strong><span>{site.legalName}</span></li>
+        <li><strong>No. daftar</strong><span>{site.registration}</span></li>
+        <li><strong>Dimulakan</strong><span>{site.started}</span></li>
+        <li><strong>Negeri</strong><span>Johor</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="evidence-title">
+    <div class="page-shell">
+      <div class="section-heading"><div><p class="eyebrow">Apa yang disokong</p><h2 id="evidence-title">Fokus yang boleh kami nyatakan dengan yakin.</h2></div><p>Maklumat laman ini disusun daripada rekod perniagaan yang dibekalkan pemilik, profil tempatan dan sumber awam yang sepadan.</p></div>
+      <div class="info-grid">
+        <article class="info-item"><span>01</span><h3>Jualan peralatan penapis air</h3><p>Aktiviti perniagaan berdaftar merangkumi penjualan peralatan penapis air dan bekas air.</p></article>
+        <article class="info-item"><span>02</span><h3>Bantuan pemilihan</h3><p>Ulasan awam menyebut kedai sebagai tempat untuk memilih penapis air.</p></article>
+        <article class="info-item"><span>03</span><h3>Servis unit sedia ada</h3><p>Bukti awam turut menyebut servis untuk penapis air lama atau yang telah digunakan.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface-mint" aria-labelledby="principles-title">
+    <div class="page-shell">
+      <div class="section-heading"><div><p class="eyebrow">Cara kami menerangkan produk</p><h2 id="principles-title">Bukti dahulu. Dakwaan kemudian.</h2></div><p>Penapis air ialah peralatan yang perlu dipilih dan dijaga. Ia bukan alasan untuk membuat janji kesihatan tanpa dokumen model yang tepat.</p></div>
+      <div class="numbered-list">
+        <article class="numbered-item"><h3>Tidak menjual ketakutan</h3><p>Kami tidak menggambarkan air awam sebagai berbahaya semata-mata untuk mendorong pembelian.</p></article>
+        <article class="numbered-item"><h3>Tidak menyamaratakan sijil</h3><p>Ujian atau pensijilan satu model tidak digunakan sebagai dakwaan untuk semua sistem.</p></article>
+        <article class="numbered-item"><h3>Tidak meneka keserasian</h3><p>Jenama, model dan komponen diperiksa sebelum filter atau servis dicadangkan.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface-white" aria-labelledby="visit-title">
+    <div class="page-shell split-content">
+      <div><p class="eyebrow">Jumpa atau hubungi</p><h2 id="visit-title">Kami berada di Jalan Intan 12.</h2><p class="lede">Waktu operasi yang dipaparkan oleh direktori awam tidak konsisten. Untuk mengelakkan perjalanan sia-sia, telefon atau WhatsApp sebelum datang.</p></div>
+      <ul class="fact-list">
+        <li><strong>Alamat</strong><a href={site.directions} target="_blank" rel="noopener">{site.address.display}</a></li>
+        <li><strong>Telefon</strong><a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></li>
+        <li><strong>E-mel</strong><a href={`mailto:${site.email}`}>{site.email}</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <ContactBand heading="Bercakap terus dengan kedai." copy="Tanya tentang pilihan baharu, sistem lama atau filter gantian. Sertakan gambar untuk semakan yang lebih tepat." message="Salam, saya ingin bertanya kepada Kedai Penapis Air Kesihatan tentang: ____." />
+</BaseLayout>

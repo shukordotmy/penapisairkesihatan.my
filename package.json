@@ -1,0 +1,28 @@
+{
+  "name": "penapisairkesihatan.my",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "assets": "node scripts/generate-og.mjs",
+    "build": "npm run assets && astro check && astro build",
+    "qa": "node scripts/qa.mjs",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.3",
+    "astro": "7.2.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.6",
+    "axe-core": "^4.13.0",
+    "playwright-core": "^1.62.1",
+    "sharp": "0.35.3",
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+Thumbs.db
+AGENTS.local.md
+npm-debug.log*

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactBand from '../components/ContactBand.astro';
+import { absoluteUrl, breadcrumbSchema, site, whatsappUrl } from '../data/site';
+
+const title = 'Tukar Filter Penapis Air di Pasir Gudang | Semak Model Dahulu';
+const description = 'Jangan tersalah beli cartridge. Hantar gambar filter dan label model untuk semakan kesesuaian penggantian di Pasir Gudang.';
+const path = '/tukar-filter/';
+const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tukar filter', href: path }];
+const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@type': 'Service', name: 'Semakan filter gantian penapis air', url: absoluteUrl(path), provider: { '@id': `${site.url}/#business` }, description }];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schema}>
+  <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
+  <header class="page-hero">
+    <div class="page-shell page-hero-grid">
+      <div><p class="eyebrow">Filter & cartridge gantian</p><h1>Nampak hampir sama belum tentu serasi.</h1><p class="page-hero-copy">Saiz, sambungan, susunan media dan spesifikasi boleh berbeza walaupun rupa cartridge serupa. Kenal pasti model sebelum membeli atau memasang.</p></div>
+      <aside class="page-hero-aside"><strong>Semakan melalui gambar</strong><p>Ambil gambar cartridge lama, label model unit dan sambungan yang berkaitan.</p><a class="button" href={whatsappUrl('Salam, saya mahu semak filter gantian. Jenama/model unit: ____. Bilangan filter: ____. Tarikh tukar terakhir: ____.')} target="_blank" rel="noopener">Semak kesesuaian <span aria-hidden="true">↗</span></a></aside>
+    </div>
+  </header>
+
+  <section class="section surface-white" aria-labelledby="photo-title">
+    <div class="page-shell">
+      <div class="section-heading"><div><p class="eyebrow">Gambar yang diperlukan</p><h2 id="photo-title">Tiga sudut, satu semakan lebih tepat.</h2></div><p>Pastikan tulisan pada label boleh dibaca. Jangan kongsi nombor siri atau maklumat peribadi yang tidak diperlukan.</p></div>
+      <div class="numbered-list">
+        <article class="numbered-item"><h3>Unit penuh</h3><p>Gambar keseluruhan membantu mengenal pasti jenis sistem dan susunan komponen.</p></article>
+        <article class="numbered-item"><h3>Label model</h3><p>Ambil gambar dekat pada jenama, nombor model dan spesifikasi yang masih jelas.</p></article>
+        <article class="numbered-item"><h3>Filter lama</h3><p>Tunjukkan bentuk, ukuran relatif, kepala sambungan dan kod yang tercetak.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="timing-title">
+    <div class="page-shell split-content">
+      <div><p class="eyebrow">Bila perlu ditukar?</p><h2 id="timing-title">Jadual pengeluar ialah panduan, bukan tekaan universal.</h2><p class="lede">Penggunaan air, keadaan bekalan, reka bentuk sistem dan jenis media mempengaruhi jadual. Gunakan rekod servis model anda dan perhatikan perubahan operasi.</p><a class="text-link" href="/panduan/bila-perlu-tukar-filter-penapis-air/">Baca panduan penuh <span aria-hidden="true">→</span></a></div>
+      <ul class="fact-list">
+        <li><strong>Semak</strong><span>Manual atau label pengeluar</span></li>
+        <li><strong>Catat</strong><span>Tarikh pertukaran terakhir</span></li>
+        <li><strong>Perhati</strong><span>Aliran dan operasi luar biasa</span></li>
+        <li><strong>Elak</strong><span>Memilih hanya berdasarkan warna</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section surface-mint" aria-labelledby="safety-title">
+    <div class="page-shell split-content">
+      <div><p class="eyebrow">Sebelum membuka sistem</p><h2 id="safety-title">Utamakan keselamatan dan kebersihan.</h2><p class="lede">Matikan bekalan air dan elektrik jika berkenaan. Jika anda tidak pasti tentang tekanan, sambungan atau sanitasi, dapatkan bantuan.</p></div>
+      <div class="simple-panel"><ul class="check-list"><li>Rujuk arahan khusus model</li><li>Jangan paksa housing atau sambungan</li><li>Gunakan komponen yang disahkan serasi</li><li>Periksa kebocoran selepas pemasangan</li><li>Ikut arahan flushing pengeluar</li></ul></div>
+    </div>
+  </section>
+
+  <ContactBand heading="Semak filter sebelum anda membelinya." copy="Hantar foto label dan cartridge lama. Kami akan semak maklumat yang diperlukan dan memaklumkan langkah seterusnya." message="Salam, saya mahu semak filter gantian. Jenama/model: ____. Tarikh tukar terakhir: ____." />
+</BaseLayout>

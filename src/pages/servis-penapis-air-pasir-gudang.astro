@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQList from '../components/FAQList.astro';
+import ContactBand from '../components/ContactBand.astro';
+import { absoluteUrl, breadcrumbSchema, site, whatsappUrl } from '../data/site';
+
+const title = 'Servis Penapis Air Pasir Gudang | Kedai Penapis Air Kesihatan';
+const description = 'Perlukan servis penapis air sedia ada di Pasir Gudang? Hantar gambar unit, label model dan masalah melalui WhatsApp untuk semakan awal.';
+const path = '/servis-penapis-air-pasir-gudang/';
+const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Servis penapis air', href: path }];
+const faqs = [
+  { question: 'Boleh servis penapis air lama?', answer: 'Terdapat bukti awam bahawa kedai membantu servis penapis air sedia ada atau lama. Namun, kesesuaian bergantung pada model, keadaan unit dan alat ganti. Hantar gambar untuk semakan.' },
+  { question: 'Adakah anda datang ke rumah?', answer: 'Pilihan kunjungan dan liputan perlu disahkan mengikut lokasi serta skop kerja. Kongsi kawasan anda melalui WhatsApp sebelum membuat perancangan.' },
+  { question: 'Boleh dapat harga sebelum servis?', answer: 'Kami boleh memahami masalah melalui gambar dan maklumat awal, tetapi harga tepat mungkin memerlukan pemeriksaan sistem dan pengesahan komponen.' },
+];
+const schema = [
+  breadcrumbSchema(crumbs),
+  {
+    '@context': 'https://schema.org', '@type': 'Service', name: 'Servis penapis air di Pasir Gudang',
+    url: absoluteUrl(path), provider: { '@id': `${site.url}/#business` }, description,
+  },
+];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={schema}>
+  <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
+  <header class="page-hero">
+    <div class="page-shell page-hero-grid">
+      <div>
+        <p class="eyebrow">Servis penapis air · Pasir Gudang</p>
+        <h1>Sistem lama tidak semestinya perlu terus diganti.</h1>
+        <p class="page-hero-copy">Mulakan dengan pemeriksaan maklumat asas. Kami semak model, keadaan yang dilaporkan dan kesesuaian komponen sebelum mencadangkan langkah seterusnya.</p>
+      </div>
+      <aside class="page-hero-aside">
+        <strong>Hantar 3 perkara</strong>
+        <p>Gambar penuh unit, gambar label model dan penerangan ringkas masalah.</p>
+        <a class="button" href={whatsappUrl('Salam, saya perlukan servis penapis air. Lokasi: ____. Jenama/model: ____. Masalah: ____.')} target="_blank" rel="noopener">Semak servis di WhatsApp <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section surface-white" aria-labelledby="symptoms-title">
+    <div class="page-shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">Bila patut bertanya</p><h2 id="symptoms-title">Perubahan ini wajar diperiksa.</h2></div>
+        <p>Satu tanda tidak semestinya menunjukkan satu punca. Elakkan membeli komponen secara rawak sebelum model dan keadaan unit dikenal pasti.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-item"><span>01</span><h3>Aliran makin perlahan</h3><p>Boleh berkait dengan filter, tekanan, paip atau komponen lain. Bandingkan dengan keadaan biasa sistem.</p></article>
+        <article class="info-item"><span>02</span><h3>Ada titisan atau kebocoran</h3><p>Tutup bekalan jika kebocoran serius dan jangan paksa sambungan. Ambil gambar kawasan yang bocor.</p></article>
+        <article class="info-item"><span>03</span><h3>Bunyi atau operasi luar biasa</h3><p>Catat bila bunyi berlaku dan sama ada unit mempunyai pam, tangki atau dispenser elektrik.</p></article>
+        <article class="info-item"><span>04</span><h3>Sudah lama tidak diperiksa</h3><p>Semak rekod servis dan jadual pengeluar. Tempoh penggantian bukan sama untuk semua model.</p></article>
+        <article class="info-item"><span>05</span><h3>Selepas berpindah atau disimpan</h3><p>Sambungan, hos dan keadaan dalaman mungkin memerlukan pemeriksaan sebelum digunakan semula.</p></article>
+        <article class="info-item"><span>06</span><h3>Perubahan rasa atau bau</h3><p>Hentikan penggunaan jika ada perubahan yang membimbangkan dan dapatkan pemeriksaan yang sesuai.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="scope-title">
+    <div class="page-shell split-content">
+      <div>
+        <p class="eyebrow">Skop ditentukan selepas semakan</p>
+        <h2 id="scope-title">Kami tidak menjanjikan “semua jenama” tanpa melihat unit.</h2>
+        <p class="lede">Pendekatan ini melindungi masa dan kos anda. Sesetengah sistem memerlukan cartridge, sambungan atau komponen khusus yang mungkin tidak serasi antara model.</p>
+      </div>
+      <ul class="fact-list">
+        <li><strong>Perlu</strong><span>Gambar penuh sistem</span></li>
+        <li><strong>Perlu</strong><span>Jenama dan nombor model</span></li>
+        <li><strong>Berguna</strong><span>Tarikh servis terakhir</span></li>
+        <li><strong>Berguna</strong><span>Video ringkas aliran atau kebocoran</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section surface-mint" aria-labelledby="service-process-title">
+    <div class="page-shell">
+      <div class="section-heading"><div><p class="eyebrow">Aliran pertanyaan</p><h2 id="service-process-title">Semak dahulu, kemudian tentukan.</h2></div><p>Maklumat awal membantu membezakan pertanyaan filter, komponen dan pemeriksaan sistem.</p></div>
+      <div class="numbered-list">
+        <article class="numbered-item"><h3>Terangkan masalah</h3><p>Nyatakan apa yang berubah, sejak bila dan apa yang sudah anda cuba.</p></article>
+        <article class="numbered-item"><h3>Kenal pasti unit</h3><p>Kami semak label model, susunan filter dan maklumat visual yang tersedia.</p></article>
+        <article class="numbered-item"><h3>Sahkan pilihan</h3><p>Kami maklumkan jika perlu datang ke kedai, pemeriksaan lanjut atau langkah lain.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface-white" aria-labelledby="service-faq-title">
+    <div class="page-shell faq-layout"><div class="faq-intro"><p class="eyebrow">Sebelum menempah</p><h2 id="service-faq-title">Soalan tentang servis.</h2></div><FAQList items={faqs} /></div>
+  </section>
+
+  <ContactBand heading="Tunjukkan unit anda kepada kami." copy="Satu gambar penuh dan satu gambar label model ialah permulaan terbaik untuk semakan servis." message="Salam, saya perlukan servis penapis air. Lokasi: ____. Jenama/model: ____. Masalah: ____." />
+</BaseLayout>

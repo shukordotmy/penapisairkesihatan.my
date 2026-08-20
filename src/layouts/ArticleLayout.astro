@@ -1,0 +1,63 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactBand from '../components/ContactBand.astro';
+import { absoluteUrl, breadcrumbSchema, site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  category: string;
+  readingTime: string;
+  datePublished: string;
+}
+
+const { title, description, slug, category, readingTime, datePublished } = Astro.props;
+const path = `/panduan/${slug}/`;
+const crumbs = [
+  { label: 'Laman utama', href: '/' },
+  { label: 'Panduan', href: '/panduan/' },
+  { label: title, href: path },
+];
+const schema = [
+  breadcrumbSchema(crumbs),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    datePublished,
+    dateModified: datePublished,
+    inLanguage: 'ms-MY',
+    mainEntityOfPage: absoluteUrl(path),
+    author: { '@type': 'Organization', name: site.name, url: site.url },
+    publisher: { '@id': `${site.url}/#business` },
+    image: absoluteUrl('/social-preview.png'),
+  },
+];
+---
+
+<BaseLayout title={`${title} | ${site.name}`} description={description} path={path} schema={schema} bodyClass="article-page">
+  <div class="page-shell article-shell">
+    <Breadcrumbs items={crumbs} />
+    <header class="article-header">
+      <p class="eyebrow">{category}</p>
+      <h1>{title}</h1>
+      <p class="article-deck">{description}</p>
+      <div class="article-meta">
+        <span>{readingTime} bacaan</span>
+        <span aria-hidden="true">•</span>
+        <time datetime={datePublished}>Diterbitkan 20 Ogos 2026</time>
+      </div>
+    </header>
+    <article class="prose">
+      <slot />
+    </article>
+  </div>
+  <ContactBand
+    heading="Masih tak pasti tentang sistem anda?"
+    copy="Hantar gambar penapis, label model dan masalah yang anda perasan. Kami akan semak maklumat asas dahulu."
+    message="Salam, saya membaca panduan di laman web. Saya ingin semak penapis air saya."
+  />
+</BaseLayout>

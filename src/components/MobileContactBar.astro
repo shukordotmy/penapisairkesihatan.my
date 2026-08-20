@@ -1,0 +1,12 @@
+---
+import { site, whatsappUrl } from '../data/site';
+---
+
+<aside class="mobile-contact-bar" aria-label="Hubungi kedai">
+  <a class="mobile-call" href={`tel:${site.phoneHref}`} aria-label={`Telefon ${site.phoneDisplay}`}>
+    <span aria-hidden="true">☎</span> Telefon
+  </a>
+  <a class="mobile-whatsapp" href={whatsappUrl('Salam, saya ingin bertanya tentang penapis air.')} target="_blank" rel="noopener">
+    WhatsApp <span aria-hidden="true">↗</span>
+  </a>
+</aside>

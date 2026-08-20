@@ -1,0 +1,42 @@
+---
+import Brand from './Brand.astro';
+import { nav, whatsappUrl } from '../data/site';
+
+interface Props { pathname: string }
+const { pathname } = Astro.props;
+const isCurrent = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="header-inner page-shell">
+    <Brand />
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+    <a class="button button-small header-cta" href={whatsappUrl('Salam, saya ingin bertanya tentang penapis air.')} target="_blank" rel="noopener">
+      WhatsApp kami
+      <span aria-hidden="true">↗</span>
+    </a>
+    <details class="mobile-nav">
+      <summary aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </summary>
+      <div class="mobile-nav-panel">
+        <nav aria-label="Navigasi mudah alih">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </nav>
+        <a class="button" href={whatsappUrl('Salam, saya ingin bertanya tentang penapis air.')} target="_blank" rel="noopener">Buka WhatsApp</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<script>
+  document.querySelectorAll('.mobile-nav a').forEach((link) => {
+    link.addEventListener('click', () => link.closest('details')?.removeAttribute('open'));
+  });
+</script>

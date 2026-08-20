@@ -1,0 +1,38 @@
+---
+import Brand from './Brand.astro';
+import { nav, site, whatsappUrl } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="page-shell footer-grid">
+    <div class="footer-intro">
+      <Brand />
+      <p>Jualan, pemilihan dan servis penapis air sedia ada di Taman Cahaya Masai, Pasir Gudang.</p>
+      <a class="text-link light-link" href={whatsappUrl('Salam, saya ingin bertanya tentang penapis air.')} target="_blank" rel="noopener">Mulakan pertanyaan di WhatsApp <span aria-hidden="true">↗</span></a>
+    </div>
+    <div>
+      <h2>Terokai</h2>
+      <ul>
+        {nav.slice(0, 5).map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        <li><a href="/soalan-lazim/">Soalan lazim</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Hubungi</h2>
+      <address>
+        <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <a href={site.directions} target="_blank" rel="noopener">{site.address.display}</a>
+      </address>
+    </div>
+  </div>
+  <div class="page-shell footer-bottom">
+    <p>© {year} {site.name}. Hak cipta terpelihara.</p>
+    <p>Dikendalikan oleh {site.legalName} · {site.registration}</p>
+    <nav aria-label="Pautan undang-undang">
+      <a href="/privasi/">Privasi</a>
+      <a href="/terma/">Terma</a>
+    </nav>
+  </div>
+</footer>

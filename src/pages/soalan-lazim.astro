@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQList from '../components/FAQList.astro';
+import ContactBand from '../components/ContactBand.astro';
+import { breadcrumbSchema, site } from '../data/site';
+
+const title = 'Soalan Lazim Penapis Air, Servis & Filter | Pasir Gudang';
+const description = 'Jawapan terus tentang pemilihan penapis air, semakan model, servis sistem lama, filter gantian, harga, lawatan dan lokasi kedai di Pasir Gudang.';
+const path = '/soalan-lazim/';
+const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Soalan lazim', href: path }];
+const faqs = [
+  { question: 'Apakah perkhidmatan yang disediakan?', answer: 'Maklumat yang disokong merangkumi jualan peralatan penapis air, bantuan pemilihan dan servis penapis air sedia ada atau lama. Skop tepat perlu disahkan mengikut model dan keadaan.' },
+  { question: 'Adakah semua jenama boleh diservis?', answer: 'Tidak semestinya. Hantar gambar unit, label model dan masalah. Keserasian komponen serta ketersediaan perlu diperiksa bagi setiap sistem.' },
+  { question: 'Berapakah harga penapis air?', answer: 'Harga bergantung pada model, fungsi, pemasangan, penyelenggaraan dan stok semasa. Laman ini tidak memaparkan angka yang belum disahkan. Minta sebut harga berdasarkan keperluan anda.' },
+  { question: 'Berapakah harga servis atau tukar filter?', answer: 'Kos bergantung pada model, filter atau komponen, keadaan unit dan skop kerja. Gambar boleh membantu semakan awal, tetapi pemeriksaan lanjut mungkin diperlukan.' },
+  { question: 'Bagaimana saya mengenal pasti model?', answer: 'Cari label pada belakang, bawah atau sisi unit. Ambil gambar yang jelas pada jenama, nombor model dan spesifikasi. Jangan kongsi nombor siri jika tidak diperlukan.' },
+  { question: 'Bila filter perlu ditukar?', answer: 'Ikut jadual pengeluar untuk model tepat dan pertimbangkan penggunaan serta keadaan operasi. Jangan gunakan satu tempoh umum untuk semua sistem.' },
+  { question: 'Boleh datang terus ke kedai?', answer: 'Boleh dapatkan arah ke kedai di Jalan Intan 12, tetapi hubungi dahulu kerana waktu dalam sumber awam tidak konsisten dan stok atau kesesuaian model perlu disahkan.' },
+  { question: 'Adakah servis ke rumah tersedia?', answer: 'Ketersediaan kunjungan dan liputan perlu disemak berdasarkan lokasi serta skop kerja. Hantar kawasan anda melalui WhatsApp.' },
+  { question: 'Adakah penapis air menjamin air bebas semua bahan cemar?', answer: 'Tidak. Keupayaan berbeza mengikut teknologi, model dan bukti ujian. Pensijilan untuk satu standard atau bahan tidak bermaksud sistem menyingkirkan semua bahan cemar.' },
+  { question: 'Apakah maklumat terbaik untuk dihantar di WhatsApp?', answer: 'Nyatakan lokasi, tujuan pembelian atau masalah, jenama/model, tarikh servis terakhir jika diketahui, serta gambar unit dan label yang jelas.' },
+];
+---
+
+<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)}>
+  <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
+  <header class="page-hero"><div class="page-shell page-hero-grid"><div><p class="eyebrow">Soalan lazim</p><h1>Jawapan yang jelas, termasuk apabila jawapannya “perlu semak dahulu”.</h1><p class="page-hero-copy">Model, keadaan dan lokasi boleh mengubah cadangan. Ketepatan lebih penting daripada jawapan cepat yang terlalu umum.</p></div><aside class="page-hero-aside"><strong>Tidak jumpa jawapan?</strong><p>Hubungi terus melalui WhatsApp dan sertakan gambar sistem anda.</p><a class="text-link" href={`tel:${site.phoneHref}`}>Telefon {site.phoneDisplay}</a></aside></div></header>
+  <section class="section surface-white"><div class="page-shell faq-wide"><FAQList items={faqs} /></div></section>
+  <ContactBand heading="Ada soalan yang khusus kepada model anda?" copy="Hantar gambar dan butiran ringkas. Kami akan semak konteks sebelum memberi cadangan." message="Salam, saya ada soalan tentang penapis air. Lokasi: ____. Jenama/model: ____. Soalan: ____." />
+</BaseLayout>
