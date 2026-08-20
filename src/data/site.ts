@@ -1,5 +1,5 @@
 export const site = {
-  name: 'Kedai Penapis Air Kesihatan',
+  name: 'Penapis Air Kesihatan',
   shortName: 'Penapis Air Kesihatan',
   legalName: 'CAHAYA SUKMAR',
   registration: 'JM0510596X / 200803055593',
@@ -8,7 +8,7 @@ export const site = {
   phoneDisplay: '+60 17-710 6169',
   phoneHref: '+60177106169',
   whatsappNumber: '60177106169',
-  email: 'shukor_hassan@ymail.com',
+  email: 'info@penapisairkesihatan.my',
   address: {
     street: '84, Jalan Intan 12',
     locality: 'Taman Cahaya Masai',
@@ -96,7 +96,7 @@ export const localBusinessSchema = {
   email: site.email,
   foundingDate: '2008-03-24',
   description:
-    'Kedai tempatan untuk jualan, pemilihan dan servis penapis air sedia ada di Taman Cahaya Masai, Pasir Gudang.',
+    'Perniagaan tempatan untuk jualan, pemilihan dan servis penapis air sedia ada di Taman Cahaya Masai, Pasir Gudang.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.address.street,

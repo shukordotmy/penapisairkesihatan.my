@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { breadcrumbSchema, site, whatsappUrl } from '../data/site';
 
-const title = 'Hubungi Kedai Penapis Air Kesihatan | Pasir Gudang';
-const description = 'WhatsApp, telefon atau dapatkan arah ke Kedai Penapis Air Kesihatan di 84, Jalan Intan 12, Taman Cahaya Masai, Pasir Gudang.';
+const title = 'Hubungi Penapis Air Kesihatan | Pasir Gudang';
+const description = 'WhatsApp, telefon atau dapatkan arah ke Penapis Air Kesihatan di 84, Jalan Intan 12, Taman Cahaya Masai, Pasir Gudang.';
 const path = '/hubungi/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Hubungi', href: path }];
 ---
@@ -14,7 +14,7 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Hubungi', href: p
   <header class="contact-hero">
     <div class="page-shell contact-hero-grid">
       <div>
-        <p class="eyebrow eyebrow-light">Hubungi kedai</p>
+        <p class="eyebrow eyebrow-light">Hubungi kami</p>
         <h1>Satu gambar boleh menjimatkan banyak soalan.</h1>
         <p>Untuk semakan penapis atau servis, hantarkan gambar penuh unit, label model, lokasi dan perkara yang anda perlukan.</p>
         <a class="button button-paper" href={whatsappUrl('Salam, saya ingin membuat pertanyaan. Lokasi: ____. Jenama/model: ____. Keperluan atau masalah: ____.')} target="_blank" rel="noopener">Buka WhatsApp <span aria-hidden="true">↗</span></a>
@@ -30,7 +30,7 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Hubungi', href: p
   <section class="section surface-white" aria-labelledby="location-title">
     <div class="page-shell location-grid">
       <div class="location-copy">
-        <p class="eyebrow">Lokasi kedai</p>
+        <p class="eyebrow">Lokasi perniagaan</p>
         <h2 id="location-title">Taman Cahaya Masai, Pasir Gudang.</h2>
         <address>{site.address.street}<br />{site.address.locality}<br />{site.address.postalCode} {site.address.city}, {site.address.state}</address>
         <div class="cta-row">
@@ -38,7 +38,7 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Hubungi', href: p
           <a class="button button-secondary" href={`tel:${site.phoneHref}`}>Telefon dahulu</a>
         </div>
       </div>
-      <a class="location-card" href={site.directions} target="_blank" rel="noopener" aria-label="Buka arah ke Kedai Penapis Air Kesihatan di Google Maps">
+      <a class="location-card" href={site.directions} target="_blank" rel="noopener" aria-label="Buka arah ke Penapis Air Kesihatan di Google Maps">
         <div class="location-map-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
         <div class="map-pin" aria-hidden="true"><span></span></div>
         <div class="location-card-label"><span>84, Jalan Intan 12</span><strong>Buka dalam Google Maps ↗</strong></div>

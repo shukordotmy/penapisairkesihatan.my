@@ -1,6 +1,6 @@
 # penapisairkesihatan.my
 
-Official static website for Kedai Penapis Air Kesihatan in Taman Cahaya Masai, Pasir Gudang, Johor.
+Official static website for Penapis Air Kesihatan in Taman Cahaya Masai, Pasir Gudang, Johor.
 
 ## Local development
 

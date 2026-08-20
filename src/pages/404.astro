@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { whatsappUrl } from '../data/site';
 ---
 
-<BaseLayout title="Halaman Tidak Ditemui | Kedai Penapis Air Kesihatan" description="Halaman yang anda cari tidak ditemui." path="/404/" noindex={true}>
+<BaseLayout title="Halaman Tidak Ditemui | Penapis Air Kesihatan" description="Halaman yang anda cari tidak ditemui." path="/404/" noindex={true}>
   <section class="error-page">
     <div class="page-shell error-grid">
       <div><p class="eyebrow">Ralat 404</p><h1>Halaman ini sudah tiada—atau alamatnya tersilap.</h1><p>Kembali ke laman utama, baca panduan, atau hubungi kami jika anda sedang mencari maklumat tentang penapis air.</p><div class="cta-row"><a class="button" href="/">Kembali ke laman utama</a><a class="button button-secondary" href={whatsappUrl('Salam, saya tidak menjumpai maklumat yang dicari di laman web. Saya ingin bertanya tentang: ____.')} target="_blank" rel="noopener">Tanya melalui WhatsApp</a></div></div>

@@ -4,8 +4,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactBand from '../components/ContactBand.astro';
 import { absoluteUrl, breadcrumbSchema, site, whatsappUrl } from '../data/site';
 
-const title = 'Cara Pilih Penapis Air Rumah di Pasir Gudang | Panduan Kedai';
-const description = 'Pilih penapis air rumah berdasarkan kegunaan, ruang, penjagaan dan kos pemilikan. Dapatkan cadangan terus daripada kedai di Pasir Gudang.';
+const title = 'Cara Pilih Penapis Air Rumah di Pasir Gudang | Panduan Tempatan';
+const description = 'Pilih penapis air rumah berdasarkan kegunaan, ruang, penjagaan dan kos pemilikan. Dapatkan cadangan terus daripada kami di Pasir Gudang.';
 const path = '/penapis-air-rumah/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Penapis air rumah', href: path }];
 const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@type': 'Service', name: 'Bantuan memilih penapis air rumah', url: absoluteUrl(path), provider: { '@id': `${site.url}/#business` }, description }];

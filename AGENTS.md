@@ -2,11 +2,12 @@
 
 ## Business
 
-- Public-facing name: Kedai Penapis Air Kesihatan.
+- Public-facing name: Penapis Air Kesihatan.
+- The full public-facing brand is exactly `Penapis Air Kesihatan`; do not add a generic retail-location prefix.
 - Registered operator: CAHAYA SUKMAR (JM0510596X / 200803055593), a Johor business commenced on 24 March 2008.
 - Public address: 84, Jalan Intan 12, Taman Cahaya Masai, 81700 Pasir Gudang, Johor, Malaysia.
 - Public phone and WhatsApp: +60 17-710 6169 (`60177106169` for `wa.me`).
-- Public email observed on the associated Facebook page: shukor_hassan@ymail.com.
+- Public business email: info@penapisairkesihatan.my.
 - Public evidence supports water-filter sales, selection help, and servicing of existing/older water filters.
 - Associated public pages:
   - Google Maps: https://www.google.com/maps/?cid=1732927229402855681
@@ -30,5 +31,5 @@
 
 ## Source provenance
 
-- Business facts were grounded on 20 August 2026 in the owner-connected Google Drive research folder “Kedai Penapis Air Kesihatan – Company Research”, plus current public sources.
+- Business facts were grounded on 20 August 2026 in the owner-connected Google Drive company-research folder, plus current public sources.
 - When facts conflict, owner records and current official sources take priority.

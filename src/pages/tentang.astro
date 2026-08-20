@@ -4,8 +4,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactBand from '../components/ContactBand.astro';
 import { breadcrumbSchema, site } from '../data/site';
 
-const title = 'Tentang Kedai Penapis Air Kesihatan | Pasir Gudang';
-const description = 'Kenali Kedai Penapis Air Kesihatan di Taman Cahaya Masai, dikendalikan oleh CAHAYA SUKMAR, sebuah perniagaan Johor yang berdaftar sejak 2008.';
+const title = 'Tentang Penapis Air Kesihatan | Pasir Gudang';
+const description = 'Kenali Penapis Air Kesihatan di Taman Cahaya Masai, dikendalikan oleh CAHAYA SUKMAR, sebuah perniagaan Johor yang berdaftar sejak 2008.';
 const path = '/tentang/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: path }];
 ---
@@ -14,16 +14,16 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: p
   <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
   <header class="page-hero">
     <div class="page-shell page-hero-grid">
-      <div><p class="eyebrow">Tentang perniagaan</p><h1>Kedai tempatan dengan hubungan selepas jualan.</h1><p class="page-hero-copy">Kedai Penapis Air Kesihatan ialah nama yang pelanggan kenal di Taman Cahaya Masai. Perniagaan ini dikendalikan oleh CAHAYA SUKMAR, entiti berdaftar di Johor.</p></div>
-      <aside class="page-hero-aside"><strong>Alamat yang sama</strong><p>Identiti kedai dan CAHAYA SUKMAR dipautkan melalui alamat awam yang konsisten di 84, Jalan Intan 12.</p><a class="button button-secondary" href={site.directions} target="_blank" rel="noopener">Lihat arah ke kedai <span aria-hidden="true">↗</span></a></aside>
+      <div><p class="eyebrow">Tentang perniagaan</p><h1>Perniagaan tempatan dengan hubungan selepas jualan.</h1><p class="page-hero-copy">Penapis Air Kesihatan ialah nama yang pelanggan kenal di Taman Cahaya Masai. Perniagaan ini dikendalikan oleh CAHAYA SUKMAR, entiti berdaftar di Johor.</p></div>
+      <aside class="page-hero-aside"><strong>Alamat yang sama</strong><p>Identiti Penapis Air Kesihatan dan CAHAYA SUKMAR dipautkan melalui alamat awam yang konsisten di 84, Jalan Intan 12.</p><a class="button button-secondary" href={site.directions} target="_blank" rel="noopener">Lihat arah ke lokasi <span aria-hidden="true">↗</span></a></aside>
     </div>
   </header>
 
   <section class="section surface-white" aria-labelledby="identity-title">
     <div class="page-shell split-content">
-      <div><p class="eyebrow">Identiti yang jelas</p><h2 id="identity-title">Nama kedai di hadapan. Perniagaan berdaftar di belakangnya.</h2><p class="lede">Kami memaparkan kedua-duanya supaya pelanggan tahu dengan siapa mereka berurusan tanpa mengubah nama kedai yang telah digunakan dalam carian setempat.</p></div>
+      <div><p class="eyebrow">Identiti yang jelas</p><h2 id="identity-title">Nama yang dikenali pelanggan. Identiti berdaftar yang jelas.</h2><p class="lede">Kami memaparkan Penapis Air Kesihatan bersama nama operator berdaftar supaya pelanggan tahu dengan siapa mereka berurusan.</p></div>
       <ul class="fact-list">
-        <li><strong>Nama kedai</strong><span>{site.name}</span></li>
+        <li><strong>Nama perniagaan</strong><span>{site.name}</span></li>
         <li><strong>Operator</strong><span>{site.legalName}</span></li>
         <li><strong>No. daftar</strong><span>{site.registration}</span></li>
         <li><strong>Dimulakan</strong><span>{site.started}</span></li>
@@ -37,7 +37,7 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: p
       <div class="section-heading"><div><p class="eyebrow">Apa yang disokong</p><h2 id="evidence-title">Fokus yang boleh kami nyatakan dengan yakin.</h2></div><p>Maklumat laman ini disusun daripada rekod perniagaan yang dibekalkan pemilik, profil tempatan dan sumber awam yang sepadan.</p></div>
       <div class="info-grid">
         <article class="info-item"><span>01</span><h3>Jualan peralatan penapis air</h3><p>Aktiviti perniagaan berdaftar merangkumi penjualan peralatan penapis air dan bekas air.</p></article>
-        <article class="info-item"><span>02</span><h3>Bantuan pemilihan</h3><p>Ulasan awam menyebut kedai sebagai tempat untuk memilih penapis air.</p></article>
+        <article class="info-item"><span>02</span><h3>Bantuan pemilihan</h3><p>Ulasan awam menyebut lokasi ini sebagai tempat untuk memilih penapis air.</p></article>
         <article class="info-item"><span>03</span><h3>Servis unit sedia ada</h3><p>Bukti awam turut menyebut servis untuk penapis air lama atau yang telah digunakan.</p></article>
       </div>
     </div>
@@ -65,5 +65,5 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: p
     </div>
   </section>
 
-  <ContactBand heading="Bercakap terus dengan kedai." copy="Tanya tentang pilihan baharu, sistem lama atau filter gantian. Sertakan gambar untuk semakan yang lebih tepat." message="Salam, saya ingin bertanya kepada Kedai Penapis Air Kesihatan tentang: ____." />
+  <ContactBand heading="Bercakap terus dengan kami." copy="Tanya tentang pilihan baharu, sistem lama atau filter gantian. Sertakan gambar untuk semakan yang lebih tepat." message="Salam, saya ingin bertanya kepada Penapis Air Kesihatan tentang: ____." />
 </BaseLayout>
