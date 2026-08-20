@@ -35,3 +35,30 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  secure:
+    name: Enforce HTTPS
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable HTTPS when the certificate is ready
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          for attempt in {1..40}; do
+            if gh api --method PUT "repos/${GITHUB_REPOSITORY}/pages" \
+              -F https_enforced=true >/dev/null 2>&1; then
+              echo "HTTPS enforcement enabled."
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 40 ]; then
+              echo "Certificate is not ready yet; retrying in 30 seconds."
+              sleep 30
+            fi
+          done
+
+          echo "::error::GitHub Pages certificate was not ready after 20 minutes."
+          exit 1
+
