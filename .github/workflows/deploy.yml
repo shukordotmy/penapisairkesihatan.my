@@ -40,25 +40,27 @@ jobs:
     name: Enforce HTTPS
     needs: deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 65
     steps:
       - name: Enable HTTPS when the certificate is ready
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          for attempt in {1..40}; do
+          for attempt in {1..120}; do
             if gh api --method PUT "repos/${GITHUB_REPOSITORY}/pages" \
               -F https_enforced=true >/dev/null 2>&1; then
               echo "HTTPS enforcement enabled."
               exit 0
             fi
 
-            if [ "$attempt" -lt 40 ]; then
+            if [ "$attempt" -lt 120 ]; then
               echo "Certificate is not ready yet; retrying in 30 seconds."
               sleep 30
             fi
           done
 
-          echo "::error::GitHub Pages certificate was not ready after 20 minutes."
+          echo "::error::GitHub Pages certificate was not ready after 60 minutes."
           exit 1
+
 
