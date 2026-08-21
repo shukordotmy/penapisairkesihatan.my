@@ -31,11 +31,13 @@
 
 ## Brand assets
 
-- The owner-approved `Penapis Air Kesihatan` Brand Asset System v1.0 was retrieved from the owner-connected Google Drive on 21 August 2026.
-- Use the supplied official wordmark, primary/reversed lockups, and icon assets; do not redraw, re-typeset, distort, or independently rescale lockup parts.
-- Core palette: Deep Navy `#0B3F6F`, Water Blue `#176FBD`, and Aqua Pastel `#78CACF`.
-- Keep at least 1X clear space around the primary lockup, where X is the cap height of “KESIHATAN”. The full primary lockup has a 220 px minimum digital width; use the icon-only asset below that size.
-- Website-ready approved assets live in `public/brand-wordmark.svg`, `public/brand-logo.png`, `public/brand-logo-reversed.svg`, `public/brand-icon.png`, and `public/favicon.ico`.
+- The owner-approved final source-locked `Penapis Air Kesihatan` asset package was retrieved from the owner-connected Google Drive on 21 August 2026.
+- Canonical source: 495 × 334 px with SHA-256 `2f6d5afc6d950dae1ef53c6b2f9aaf12309d248b991506f665d5d977882a3c7b`.
+- Primary artwork is generated directly from the approved reference. Do not redraw or reconstruct the droplet, S-shaped negative space, typography, spacing, or alignment.
+- Use the supplied PNG/JPG variants for normal web placement. `ExactArtwork` SVG/PDF files intentionally embed the approved raster artwork and are not editable vector masters.
+- Use the full primary logo on white whenever space permits; use icon-only exports for favicons, app icons, avatars, and very small placements.
+- Keep generous clear space. Never alter aspect ratio, rotate, skew, change the relative scale of icon/text, or replace the typography.
+- Website-ready approved assets live in `public/brand-wordmark.png`, `public/brand-logo.png`, `public/brand-logo-transparent.png`, `public/brand-logo-reversed.png`, `public/brand-icon.png`, and `public/favicon.ico`.
 
 ## Source provenance
 

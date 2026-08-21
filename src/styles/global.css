@@ -291,10 +291,6 @@ p {
   height: auto;
 }
 
-.brand-symbol {
-  height: auto;
-}
-
 .brand-wordmark {
   width: 184px;
 }
@@ -623,56 +619,12 @@ p {
   content: "";
 }
 
-.hero-brand-mark {
+.hero-brand-logo {
   position: relative;
   z-index: 1;
-  width: min(54%, 245px);
-  margin: 12px auto 16px;
-}
-
-.water-graphic figcaption {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  justify-items: center;
-  color: var(--teal);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.28em;
-  line-height: 1;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.water-graphic figcaption strong {
-  margin-bottom: 10px;
-  color: var(--navy);
-  font-family: var(--display);
-  font-size: clamp(1.65rem, 3vw, 2.4rem);
-  font-weight: 850;
-  letter-spacing: 0.06em;
-}
-
-.water-graphic figcaption span {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-}
-
-.water-graphic figcaption span::before,
-.water-graphic figcaption span::after {
-  width: 46px;
-  height: 2px;
-  background: var(--aqua);
-  content: "";
-}
-
-.water-graphic figcaption small {
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 0.66rem;
-  font-weight: 750;
-  letter-spacing: 0.11em;
+  width: min(80%, 330px);
+  height: auto;
+  margin: 70px auto 0;
 }
 
 .graphic-note {
@@ -1600,10 +1552,9 @@ p {
     inset: 45px 28px 118px;
   }
 
-  .hero-brand-mark {
-    width: min(52%, 170px);
-    margin-top: 4px;
-    transform: none;
+  .hero-brand-logo {
+    width: min(82%, 260px);
+    margin-top: 54px;
   }
 
   .graphic-note {

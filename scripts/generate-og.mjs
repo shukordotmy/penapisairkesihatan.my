@@ -5,7 +5,7 @@ import sharp from 'sharp';
 const publicDir = path.resolve('public');
 await mkdir(publicDir, { recursive: true });
 
-const primaryLogo = await sharp(path.join(publicDir, 'brand-logo.png'))
+const primaryLogo = await sharp(path.join(publicDir, 'brand-logo-transparent.png'))
   .resize({ width: 300 })
   .png()
   .toBuffer();
