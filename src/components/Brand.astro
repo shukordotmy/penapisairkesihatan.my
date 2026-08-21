@@ -1,11 +1,25 @@
 ---
-import BrandMark from './BrandMark.astro';
+interface Props {
+  variant?: 'wordmark' | 'primary' | 'reversed' | 'icon';
+}
+
+const { variant = 'wordmark' } = Astro.props;
+const assets = {
+  wordmark: { src: '/brand-wordmark.svg', width: 790, height: 215 },
+  primary: { src: '/brand-logo.png', width: 512, height: 348 },
+  reversed: { src: '/brand-logo-reversed.svg', width: 1000, height: 680 },
+  icon: { src: '/brand-icon.png', width: 512, height: 512 },
+};
+const asset = assets[variant];
 ---
 
-<a class="brand" href="/" aria-label="Penapis Air Kesihatan — laman utama">
-  <span class="brand-mark-frame" aria-hidden="true"><BrandMark class="brand-mark" /></span>
-  <span class="brand-type">
-    <strong>Penapis Air</strong>
-    <span>Kesihatan</span>
-  </span>
+<a class:list={['brand', `brand-${variant}`]} href="/" aria-label="Penapis Air Kesihatan — laman utama">
+  <img
+    class="brand-logo"
+    src={asset.src}
+    width={asset.width}
+    height={asset.height}
+    alt=""
+    decoding="async"
+  />
 </a>

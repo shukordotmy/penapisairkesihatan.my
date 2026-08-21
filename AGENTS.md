@@ -29,6 +29,14 @@
 - Conversion priority: WhatsApp, then phone, then Google Maps directions.
 - Keep the design clean and editorial; avoid generic stock photography, unsupported badges, fake testimonials, excessive cards, gradients, and animation.
 
+## Brand assets
+
+- The owner-approved `Penapis Air Kesihatan` Brand Asset System v1.0 was retrieved from the owner-connected Google Drive on 21 August 2026.
+- Use the supplied official wordmark, primary/reversed lockups, and icon assets; do not redraw, re-typeset, distort, or independently rescale lockup parts.
+- Core palette: Deep Navy `#0B3F6F`, Water Blue `#176FBD`, and Aqua Pastel `#78CACF`.
+- Keep at least 1X clear space around the primary lockup, where X is the cap height of “KESIHATAN”. The full primary lockup has a 220 px minimum digital width; use the icon-only asset below that size.
+- Website-ready approved assets live in `public/brand-wordmark.svg`, `public/brand-logo.png`, `public/brand-logo-reversed.svg`, `public/brand-icon.png`, and `public/favicon.ico`.
+
 ## Source provenance
 
 - Business facts were grounded on 20 August 2026 in the owner-connected Google Drive company-research folder, plus current public sources.

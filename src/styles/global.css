@@ -1,12 +1,12 @@
 :root {
   --ink: #0a2342;
-  --ink-strong: #052d5f;
-  --navy: #063b7a;
-  --navy-2: #0b4f98;
+  --ink-strong: #0b3f6f;
+  --navy: #0b3f6f;
+  --navy-2: #176fbd;
   --green: var(--navy);
   --green-2: var(--navy-2);
   --teal: #006d75;
-  --aqua: #08b8be;
+  --aqua: #78cacf;
   --mint: #cbeef1;
   --mint-2: #eef8fa;
   --paper: #f8fbfc;
@@ -283,67 +283,29 @@ p {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: 11px;
-  color: var(--navy);
   text-decoration: none;
 }
 
-.brand-mark-frame {
-  display: grid;
-  width: 40px;
-  height: 46px;
-  flex: 0 0 auto;
-  place-items: center;
+.brand-logo {
+  width: 100%;
+  height: auto;
 }
 
-.brand-mark {
-  width: 35px;
-  height: 42px;
+.brand-symbol {
+  height: auto;
 }
 
-.brand-symbol-navy {
-  fill: var(--navy);
+.brand-wordmark {
+  width: 184px;
 }
 
-.brand-symbol-aqua {
-  fill: var(--aqua);
+.brand-primary,
+.brand-reversed {
+  width: 220px;
 }
 
-.brand-type {
-  display: grid;
-  min-width: 126px;
-  line-height: 1;
-}
-
-.brand-type span {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--teal);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-.brand-type span::before,
-.brand-type span::after {
-  width: 11px;
-  height: 1px;
-  flex: 0 0 auto;
-  background: currentColor;
-  content: "";
-}
-
-.brand-type strong {
-  margin-bottom: 4px;
-  color: var(--navy);
-  font-family: var(--display);
-  font-size: 1.05rem;
-  font-weight: 850;
-  letter-spacing: 0.045em;
-  line-height: 1;
-  text-transform: uppercase;
+.brand-icon {
+  width: 46px;
 }
 
 .desktop-nav {
@@ -514,25 +476,12 @@ p {
 
 .site-footer {
   padding-top: 74px;
-  background: #031b46;
+  background: var(--navy);
   color: #dbeafb;
 }
 
 .site-footer .brand {
   margin-bottom: 24px;
-}
-
-.site-footer .brand-mark-frame {
-  border-radius: 50%;
-  background: var(--white);
-}
-
-.site-footer .brand-type strong {
-  color: var(--white);
-}
-
-.site-footer .brand-type span {
-  color: var(--aqua);
 }
 
 .footer-grid {
@@ -1633,17 +1582,8 @@ p {
     gap: 16px;
   }
 
-  .brand-mark {
-    width: 31px;
-    height: 38px;
-  }
-
-  .brand-type strong {
-    font-size: 0.98rem;
-  }
-
-  .brand-type span {
-    font-size: 0.58rem;
+  .brand-wordmark {
+    width: 164px;
   }
 
   .page-hero h1,
