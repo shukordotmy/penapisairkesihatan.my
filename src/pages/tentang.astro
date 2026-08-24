@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactBand from '../components/ContactBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { breadcrumbSchema, site } from '../data/site';
 
 const title = 'Tentang Penapis Air Kesihatan | Pasir Gudang';
@@ -10,11 +11,11 @@ const path = '/tentang/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: path }];
 ---
 
-<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)}>
+<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)} pageType="AboutPage">
   <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
   <header class="page-hero">
     <div class="page-shell page-hero-grid">
-      <div><p class="eyebrow">Tentang perniagaan</p><h1>Dari pemilihan produk hingga penjagaan selepas jualan.</h1><p class="page-hero-copy">Penapis Air Kesihatan ialah nama yang pelanggan kenal di Taman Cahaya Masai. Perniagaan ini dikendalikan oleh CAHAYA SUKMAR, entiti Johor yang dimulakan pada 24 Mac 2008.</p></div>
+      <div><p class="eyebrow">Tentang perniagaan</p><h1>Tentang Penapis Air Kesihatan.</h1><p class="page-hero-copy">Penapis Air Kesihatan ialah nama perniagaan yang dipaparkan kepada pelanggan di Taman Cahaya Masai. Ia dikendalikan oleh CAHAYA SUKMAR, sebuah perniagaan Johor yang dimulakan pada 24 Mac 2008.</p></div>
       <aside class="page-hero-aside"><strong>Alamat yang sama</strong><p>Identiti Penapis Air Kesihatan dan CAHAYA SUKMAR dipautkan melalui alamat awam yang konsisten di 84, Jalan Intan 12.</p><a class="button button-secondary" href={site.directions} target="_blank" rel="noopener">Lihat arah ke lokasi <span aria-hidden="true">↗</span></a></aside>
     </div>
   </header>
@@ -22,7 +23,7 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: p
   <section class="section-tight surface-white" aria-labelledby="premises-title">
     <div class="page-shell premises-story">
       <figure class="business-photo">
-        <img src="/business-storefront-blue.webp" width="1448" height="1086" alt="Premis Penapis Air Kesihatan dengan ruang niaga, peralatan dan rak bekas air di Taman Cahaya Masai" loading="lazy" decoding="async" />
+        <img src="/business-storefront-blue.webp" srcset="/business-storefront-blue-768.webp 768w, /business-storefront-blue-1200.webp 1200w, /business-storefront-blue.webp 1448w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) calc(100vw - 48px), (max-width: 1228px) calc(54.6vw - 29px), 642px" width="1448" height="1086" alt="Premis Penapis Air Kesihatan dengan ruang niaga, peralatan dan rak bekas air di Taman Cahaya Masai" loading="lazy" decoding="async" />
         <figcaption><span>Premis sebenar</span><p>Gambar terdahulu yang diperkemas untuk paparan web. Produk, jenama dan stok semasa perlu disahkan.</p></figcaption>
       </figure>
       <div>
@@ -49,20 +50,13 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: p
 
   <section class="section" aria-labelledby="evidence-title">
     <div class="page-shell">
-      <div class="section-heading"><div><p class="eyebrow">Apa yang disokong</p><h2 id="evidence-title">Fokus yang boleh kami nyatakan dengan yakin.</h2></div><p>Maklumat laman ini disusun daripada rekod perniagaan yang dibekalkan pemilik, profil tempatan dan sumber awam yang sepadan.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">Skop yang disahkan</p><h2 id="evidence-title">Fokus yang boleh kami nyatakan dengan yakin.</h2></div><p>Maklumat ini membezakan tawaran semasa yang disahkan daripada jenama, model, stok atau keserasian yang masih perlu diperiksa.</p></div>
       <div class="info-grid info-grid-four">
-        <article class="info-item"><span>01</span><h3>Jualan peralatan penapis air</h3><p>Aktiviti perniagaan berdaftar merangkumi penjualan peralatan penapis air dan bekas air.</p></article>
-        <article class="info-item"><span>02</span><h3>Bantuan pemilihan</h3><p>Ulasan awam menyebut lokasi ini sebagai tempat untuk memilih penapis air.</p></article>
-        <article class="info-item"><span>03</span><h3>Servis unit sedia ada</h3><p>Bukti awam turut menyebut servis untuk penapis air lama atau yang telah digunakan.</p></article>
-        <article class="info-item"><span>04</span><h3>Bekas air</h3><p>Penjualan bekas air turut disenaraikan dalam rekod aktiviti perniagaan; jenis dan stok semasa perlu disahkan.</p></article>
+        <article class="info-item"><span>01 · Jualan & servis</span><h3>RO, mineral dan dispenser</h3><p>Pemilik mengesahkan jualan dan servis bagi sistem RO, sistem mineral dan dispenser air.</p></article>
+        <article class="info-item"><span>02 · Servis</span><h3>Penapis indoor & outdoor</h3><p>Pertanyaan servis diterima untuk penapis rumah di dalam atau di luar rumah, selepas model dan keadaan disemak.</p></article>
+        <article class="info-item"><span>03 · Unit sedia ada</span><h3>Penapis lama boleh dipertimbangkan</h3><p>Unit lama atau sedia ada boleh dihantar untuk semakan tanpa janji bahawa setiap jenama atau alat ganti tersedia.</p></article>
+        <article class="info-item"><span>04 · Ketepatan</span><h3>Keserasian diperiksa dahulu</h3><p>Jenama, model, gambar, keadaan, komponen dan lokasi membantu menentukan sama ada pertanyaan boleh diteruskan.</p></article>
       </div>
-    </div>
-  </section>
-
-  <section class="section surface-white" aria-labelledby="scope-title">
-    <div class="page-shell split-content">
-      <div><p class="eyebrow">Skop pendaftaran</p><h2 id="scope-title">CAHAYA SUKMAR mempunyai skop berdaftar yang lebih luas.</h2><p class="lede">Rekod pemilik menyenaraikan pembekalan makanan dan minuman, runcit barangan, pengedaran dan pembungkusan makanan/minuman, penjualan bekas air serta peralatan penapis air.</p></div>
-      <div class="simple-panel"><p><strong>Pendaftaran bukan katalog semasa.</strong></p><p>Laman ini hanya mempromosikan tawaran yang boleh disokong dengan yakin. Untuk barangan lain, jenama, model, stok atau harga semasa, hubungi perniagaan terlebih dahulu.</p></div>
     </div>
   </section>
 
@@ -87,6 +81,17 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tentang', href: p
       </ul>
     </div>
   </section>
+
+  <div class="page-shell">
+    <RelatedLinks
+      heading="Lihat produk, servis dan lokasi"
+      items={[
+        { href: '/penapis-air-rumah/', label: 'Jualan & pemilihan', title: 'Penapis air RO, mineral dan dispenser' },
+        { href: '/servis-penapis-air-pasir-gudang/', label: 'Unit sedia ada', title: 'Servis penapis air di Pasir Gudang' },
+        { href: '/hubungi/', label: 'Alamat & hubungan', title: 'Hubungi Penapis Air Kesihatan' },
+      ]}
+    />
+  </div>
 
   <ContactBand heading="Bercakap terus dengan kami." copy="Tanya tentang pilihan baharu, sistem lama atau filter gantian. Sertakan gambar untuk semakan yang lebih tepat." message="Salam, saya ingin bertanya kepada Penapis Air Kesihatan tentang: ____." />
 </BaseLayout>

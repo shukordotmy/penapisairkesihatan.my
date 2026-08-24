@@ -741,6 +741,11 @@ p {
   font-size: 0.82rem;
 }
 
+.article-meta a {
+  color: inherit;
+  text-underline-offset: 0.18em;
+}
+
 .prose {
   max-width: var(--reading);
   margin-left: clamp(0px, 8vw, 110px);
@@ -867,6 +872,65 @@ p {
   margin-top: auto;
   color: var(--teal);
   font-weight: 800;
+}
+
+.related-links {
+  margin-top: clamp(64px, 9vw, 110px);
+  padding-top: clamp(42px, 6vw, 68px);
+  border-top: 1px solid var(--line-dark);
+}
+
+.related-links h2 {
+  max-width: 720px;
+  margin-bottom: 28px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.related-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.related-links-grid a {
+  position: relative;
+  display: grid;
+  min-height: 180px;
+  align-content: space-between;
+  gap: 24px;
+  padding: 25px 52px 25px 25px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.related-links-grid a:hover {
+  background: var(--mint-2);
+}
+
+.related-links-grid span {
+  color: var(--teal);
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.related-links-grid strong {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.18;
+}
+
+.related-links-grid i {
+  position: absolute;
+  right: 24px;
+  bottom: 25px;
+  color: var(--teal);
+  font-style: normal;
 }
 
 .info-grid {
@@ -1073,6 +1137,14 @@ p {
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
+}
+
+.home-hero-caption {
+  max-width: 600px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.45;
 }
 
 .business-photo {
@@ -1542,6 +1614,19 @@ p {
   font-size: 1.1rem;
 }
 
+.error-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 26px;
+}
+
+.error-links a {
+  color: var(--teal);
+  font-weight: 750;
+  text-underline-offset: 0.22em;
+}
+
 .error-mark {
   display: flex;
   align-items: center;
@@ -1608,6 +1693,10 @@ p {
   }
 
   .guide-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .related-links-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1711,6 +1800,14 @@ p {
   .info-grid,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .related-links-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .related-links-grid a {
+    min-height: 150px;
   }
 
   .info-grid.info-grid-four {

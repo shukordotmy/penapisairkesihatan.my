@@ -28,6 +28,11 @@
 - Malay (`ms-MY`) is the primary language.
 - Use Astro static output, semantic HTML, hand-written CSS, and minimal client JavaScript.
 - GitHub Actions builds and deploys the site to GitHub Pages from `main`.
+- The production build runs `scripts/seo-audit.mjs`; deployment also runs the Playwright/axe
+  route suite and submits genuinely changed canonical URLs to IndexNow after a successful push.
+- Maintain accurate sitemap `lastmod` dates: guide dates come from `src/data/site.ts` and other
+  route dates live in `astro.config.mjs`. Never substitute the build date for a meaningful
+  content-update date.
 - Conversion priority: WhatsApp, then phone, then Google Maps directions.
 - Keep the design clean, concise, image-balanced and editorial; avoid crowded copy-heavy pages, generic stock photography, unsupported badges, fake testimonials, excessive cards, gradients, and animation.
 

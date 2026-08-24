@@ -25,9 +25,9 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: '/penapis-air-rumah/', label: 'Produk penapis' },
-  { href: '/tukar-filter/', label: 'Filter gantian' },
-  { href: '/servis-penapis-air-pasir-gudang/', label: 'Servis' },
+  { href: '/penapis-air-rumah/', label: 'Penapis air rumah' },
+  { href: '/tukar-filter/', label: 'Tukar filter' },
+  { href: '/servis-penapis-air-pasir-gudang/', label: 'Servis penapis air' },
   { href: '/panduan/', label: 'Panduan' },
   { href: '/tentang/', label: 'Tentang' },
   { href: '/hubungi/', label: 'Hubungi' },
@@ -38,10 +38,16 @@ export const guides = [
     slug: 'cara-pilih-penapis-air-rumah',
     title: 'Cara pilih penapis air untuk rumah tanpa tersalah beli',
     description:
-      'Mulakan dengan sumber air, kegunaan, ruang, bajet pemilikan dan penyelenggaraan—bukan dakwaan pemasaran semata-mata.',
+      'Mulakan dengan kegunaan, ruang, bajet pemilikan dan penyelenggaraan—bukan dakwaan pemasaran atau bilangan filter semata-mata.',
     category: 'Panduan membeli',
     readingTime: '6 minit',
     datePublished: '2026-08-20',
+    dateModified: '2026-08-24',
+    related: [
+      { href: '/penapis-air-rumah/', label: 'Pilihan rumah', title: 'Penapis air RO, sistem mineral dan dispenser' },
+      { href: '/panduan/bila-perlu-tukar-filter-penapis-air/', label: 'Penyelenggaraan', title: 'Bila perlu tukar filter penapis air?' },
+      { href: '/tukar-filter/', label: 'Semakan komponen', title: 'Semak filter gantian berdasarkan model' },
+    ],
   },
   {
     slug: 'bila-perlu-tukar-filter-penapis-air',
@@ -51,6 +57,12 @@ export const guides = [
     category: 'Penyelenggaraan',
     readingTime: '5 minit',
     datePublished: '2026-08-20',
+    dateModified: '2026-08-24',
+    related: [
+      { href: '/tukar-filter/', label: 'Filter gantian', title: 'Cara menyemak filter sebelum membeli' },
+      { href: '/servis-penapis-air-pasir-gudang/', label: 'Servis', title: 'Servis penapis air di Pasir Gudang' },
+      { href: '/panduan/tanda-penapis-air-perlu-servis/', label: 'Pemeriksaan', title: '6 tanda penapis air mungkin perlu diservis' },
+    ],
   },
   {
     slug: 'tanda-penapis-air-perlu-servis',
@@ -60,6 +72,42 @@ export const guides = [
     category: 'Servis',
     readingTime: '5 minit',
     datePublished: '2026-08-20',
+    dateModified: '2026-08-24',
+    related: [
+      { href: '/servis-penapis-air-pasir-gudang/', label: 'Servis', title: 'Semak servis penapis air di Pasir Gudang' },
+      { href: '/tukar-filter/', label: 'Filter gantian', title: 'Kenal pasti model sebelum menukar filter' },
+      { href: '/panduan/bila-perlu-tukar-filter-penapis-air/', label: 'Penyelenggaraan', title: 'Bila perlu tukar filter penapis air?' },
+    ],
+  },
+  {
+    slug: 'penapis-air-ro-atau-mineral',
+    title: 'Penapis air RO atau mineral: apa perlu dibandingkan?',
+    description:
+      'RO menerangkan satu proses, manakala “mineral” tidak semestinya menerangkan teknologi. Banding model, aliran, penjagaan dan bukti yang tepat.',
+    category: 'Perbandingan sistem',
+    readingTime: '7 minit',
+    datePublished: '2026-08-24',
+    dateModified: '2026-08-24',
+    related: [
+      { href: '/penapis-air-rumah/', label: 'Pilihan rumah', title: 'Semak sistem RO, mineral dan dispenser' },
+      { href: '/panduan/cara-pilih-penapis-air-rumah/', label: 'Panduan membeli', title: 'Cara pilih penapis air rumah' },
+      { href: '/tukar-filter/', label: 'Penyelenggaraan', title: 'Kenal pasti filter dan cartridge gantian' },
+    ],
+  },
+  {
+    slug: 'penapis-air-indoor-atau-outdoor',
+    title: 'Penapis air indoor atau outdoor: apa bezanya?',
+    description:
+      'Bezakan lokasi pemasangan daripada titik rawatan. Fahami penggunaan satu paip, laluan masuk rumah, aliran, ruang dan keperluan servis.',
+    category: 'Susunan rumah',
+    readingTime: '7 minit',
+    datePublished: '2026-08-24',
+    dateModified: '2026-08-24',
+    related: [
+      { href: '/servis-penapis-air-pasir-gudang/', label: 'Servis unit sedia ada', title: 'Semak penapis indoor atau outdoor' },
+      { href: '/penapis-air-rumah/', label: 'Pemilihan', title: 'Penapis air rumah mengikut kegunaan' },
+      { href: '/panduan/cara-pilih-penapis-air-rumah/', label: 'Panduan membeli', title: 'Cara memilih mengikut titik penggunaan' },
+    ],
   },
 ] as const;
 
@@ -84,50 +132,122 @@ export function breadcrumbSchema(items: Array<{ label: string; href: string }>) 
   };
 }
 
-export const localBusinessSchema = {
+export const operatorSchema = {
   '@context': 'https://schema.org',
-  '@type': ['LocalBusiness', 'Store'],
-  '@id': `${site.url}/#business`,
-  name: site.name,
-  alternateName: 'Penapis air shukor',
+  '@type': 'Organization',
+  '@id': `${site.url}/#operator`,
+  name: site.legalName,
   legalName: site.legalName,
-  url: site.url,
+  url: absoluteUrl('/tentang/'),
   telephone: site.phoneHref,
   email: site.email,
   foundingDate: '2008-03-24',
-  description:
-    'Perniagaan tempatan untuk jualan dan servis penapis RO, sistem mineral, dispenser air serta penapis indoor dan outdoor di Taman Cahaya Masai, Pasir Gudang.',
+  identifier: {
+    '@type': 'PropertyValue',
+    propertyID: 'SSM',
+    value: site.registration,
+  },
   address: {
     '@type': 'PostalAddress',
-    streetAddress: site.address.street,
+    streetAddress: `${site.address.street}, ${site.address.locality}`,
+    addressLocality: site.address.city,
+    addressRegion: site.address.state,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.country,
+  },
+  subOrganization: { '@id': `${site.url}/#business` },
+};
+
+export const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Store',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  url: absoluteUrl('/'),
+  telephone: site.phoneHref,
+  email: site.email,
+  description:
+    'Jualan dan servis sistem penapis air RO, sistem mineral dan dispenser air. Pertanyaan servis untuk penapis rumah indoor dan outdoor disemak mengikut jenama, model, keadaan dan alat ganti. Perniagaan beralamat di Taman Cahaya Masai, Pasir Gudang.',
+  parentOrganization: { '@id': `${site.url}/#operator` },
+  logo: {
+    '@type': 'ImageObject',
+    '@id': `${site.url}/#logo`,
+    url: absoluteUrl('/brand-logo.png'),
+    contentUrl: absoluteUrl('/brand-logo.png'),
+    width: 512,
+    height: 345,
+    caption: site.name,
+  },
+  image: {
+    '@type': 'ImageObject',
+    url: absoluteUrl('/business-storefront-blue.webp'),
+    contentUrl: absoluteUrl('/business-storefront-blue.webp'),
+    width: 1448,
+    height: 1086,
+    caption: `Premis ${site.name} di Taman Cahaya Masai`,
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: `${site.address.street}, ${site.address.locality}`,
     addressLocality: site.address.city,
     addressRegion: site.address.state,
     postalCode: site.address.postalCode,
     addressCountry: site.address.country,
   },
   hasMap: site.maps,
-  sameAs: [site.facebook, site.maps],
-  makesOffer: [
+  sameAs: [site.facebook],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Jualan dan servis Penapis Air Kesihatan',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Sistem penapis air RO',
+          description: 'Kategori jualan dan servis; jenama, model, stok, harga dan ketersediaan perlu disahkan semasa pertanyaan.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Sistem penapis air mineral',
+          description: 'Kategori jualan dan servis; susunan filter, model, stok, harga dan ketersediaan perlu disahkan semasa pertanyaan.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Dispenser air',
+          description: 'Kategori jualan dan servis; jenis, model, stok, harga dan ketersediaan perlu disahkan semasa pertanyaan.',
+        },
+      },
     {
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
-        name: 'Servis penapis air RO, mineral, indoor dan outdoor',
-      },
-    },
-    {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Product',
-        name: 'Penapis air RO, sistem mineral dan dispenser air',
+        name: 'Servis sistem penapis air RO dan mineral serta dispenser air',
       },
     },
     {
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
-        name: 'Servis dispenser serta semakan filter dan cartridge gantian',
+        name: 'Servis penapis air rumah indoor dan outdoor selepas semakan keserasian',
       },
     },
-  ],
+    ],
+  },
+};
+
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${site.url}/#website`,
+  name: site.name,
+  url: absoluteUrl('/'),
+  inLanguage: 'ms-MY',
+  publisher: { '@id': `${site.url}/#business` },
 };

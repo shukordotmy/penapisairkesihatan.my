@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FAQList from '../components/FAQList.astro';
 import ContactBand from '../components/ContactBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { absoluteUrl, breadcrumbSchema, site, whatsappUrl } from '../data/site';
 
 const title = 'Servis Penapis Air Pasir Gudang | Penapis Air Kesihatan';
@@ -19,7 +20,8 @@ const schema = [
   breadcrumbSchema(crumbs),
   {
     '@context': 'https://schema.org', '@type': 'Service', name: 'Servis penapis air di Pasir Gudang',
-    url: absoluteUrl(path), provider: { '@id': `${site.url}/#business` }, description,
+    '@id': `${absoluteUrl(path)}#service`, url: absoluteUrl(path), serviceType: 'Servis penapis air rumah',
+    provider: { '@id': `${site.url}/#business` }, mainEntityOfPage: { '@id': `${absoluteUrl(path)}#webpage` }, description,
   },
 ];
 ---
@@ -31,7 +33,7 @@ const schema = [
       <div>
         <p class="eyebrow">Servis penapis air · Pasir Gudang</p>
         <h1>Servis penapis air di Pasir Gudang.</h1>
-        <p class="page-hero-copy">Daripada unit air minuman hingga penapis laluan masuk rumah, kami semak model, susunan sistem, keadaan yang dilaporkan dan kesesuaian komponen sebelum mencadangkan langkah seterusnya.</p>
+        <p class="page-hero-copy">Daripada unit air minuman hingga penapis laluan masuk rumah, termasuk unit sedia ada atau lama, kami semak model, susunan sistem, keadaan yang dilaporkan dan kesesuaian komponen sebelum mencadangkan langkah seterusnya.</p>
       </div>
       <aside class="page-hero-aside">
         <strong>Hantar 3 perkara</strong>
@@ -120,6 +122,17 @@ const schema = [
   <section class="section surface-white" aria-labelledby="service-faq-title">
     <div class="page-shell faq-layout"><div class="faq-intro"><p class="eyebrow">Sebelum menempah</p><h2 id="service-faq-title">Soalan tentang servis.</h2></div><FAQList items={faqs} /></div>
   </section>
+
+  <div class="page-shell">
+    <RelatedLinks
+      heading="Kenal pasti masalah sebelum menempah servis"
+      items={[
+        { href: '/panduan/tanda-penapis-air-perlu-servis/', label: 'Pemeriksaan awal', title: '6 tanda penapis air mungkin perlu diservis' },
+        { href: '/tukar-filter/', label: 'Filter gantian', title: 'Semak cartridge dan model sebelum membeli' },
+        { href: '/panduan/penapis-air-indoor-atau-outdoor/', label: 'Susunan rumah', title: 'Penapis indoor atau outdoor: apa bezanya?' },
+      ]}
+    />
+  </div>
 
   <ContactBand heading="Tunjukkan unit anda kepada kami." copy="Satu gambar penuh dan satu gambar label model ialah permulaan terbaik untuk semakan servis." message="Salam, saya perlukan servis penapis air. Lokasi: ____. Jenama/model: ____. Masalah: ____." />
 </BaseLayout>

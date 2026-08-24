@@ -2,35 +2,26 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { guides, site, whatsappUrl } from '../data/site';
 
-const title = 'Penapis Air Pasir Gudang | Jualan & Servis';
-const description = 'Jualan dan servis penapis air RO, sistem mineral, dispenser serta penapis indoor dan outdoor di Taman Cahaya Masai, Pasir Gudang.';
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': `${site.url}/#website`,
-  name: site.name,
-  url: site.url,
-  inLanguage: 'ms-MY',
-  publisher: { '@id': `${site.url}/#business` },
-};
+const title = 'Penapis Air Kesihatan | Jualan & Servis Pasir Gudang';
+const description = 'Jualan dan servis sistem RO, mineral dan dispenser air di Pasir Gudang. Servis penapis indoor dan outdoor disemak mengikut model dan keadaan.';
 
 const services = [
   {
     number: '01',
     title: 'Penapis RO & mineral',
-    copy: 'Sistem air minuman mengikut ruang dan cara penggunaan.',
+    copy: 'Jualan dan servis mengikut ruang, penggunaan dan model.',
     href: '/penapis-air-rumah/',
   },
   {
     number: '02',
     title: 'Dispenser air',
-    copy: 'Jualan, pemeriksaan unit dan filter gantian.',
-    href: '/servis-penapis-air-pasir-gudang/',
+    copy: 'Jualan, pemeriksaan unit dan semakan filter gantian.',
+    href: '/penapis-air-rumah/',
   },
   {
     number: '03',
     title: 'Penapis indoor & outdoor',
-    copy: 'Servis sistem di dalam rumah atau pada laluan air utama.',
+    copy: 'Servis unit sedia ada di dalam rumah atau pada laluan air utama.',
     href: '/servis-penapis-air-pasir-gudang/',
   },
   {
@@ -42,13 +33,13 @@ const services = [
 ];
 ---
 
-<BaseLayout title={title} description={description} path="/" schema={schema}>
+<BaseLayout title={title} description={description} path="/">
   <section class="home-hero">
     <div class="page-shell home-hero-grid">
       <div class="home-hero-copy">
         <p class="eyebrow">Taman Cahaya Masai · Pasir Gudang</p>
-        <h1>Penapis air untuk rumah. <em>Jualan & servis.</em></h1>
-        <p class="home-deck">RO, sistem mineral, dispenser serta penapis indoor dan outdoor—semak keperluan anda terus dengan kami.</p>
+        <h1>Jualan dan servis penapis air <em>di Pasir Gudang.</em></h1>
+        <p class="home-deck">Kami menjual dan menservis sistem RO, mineral dan dispenser air, serta menerima pertanyaan servis untuk penapis rumah indoor dan outdoor.</p>
         <div class="cta-row">
           <a class="button" href={whatsappUrl('Salam, saya ingin bertanya tentang produk atau servis. Lokasi: ____. Jenama/model: ____. Keperluan atau masalah: ____.')} target="_blank" rel="noopener">
             Tanya di WhatsApp <span aria-hidden="true">↗</span>
@@ -62,15 +53,46 @@ const services = [
         <div class="home-hero-photo-frame">
           <img
             src="/home-products-hot-cold-hero-v3.webp"
+            srcset="/home-products-hot-cold-hero-768.webp 768w, /home-products-hot-cold-hero-1200.webp 1200w, /home-products-hot-cold-hero-v3.webp 1536w"
+            sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 808px) calc(100vw - 48px), (max-width: 980px) 760px, (max-width: 1228px) calc(50vw - 24px), 590px"
             width="1536"
             height="1024"
-            alt="Dispenser air panas dan sejuk tanpa jenama bersama filter seramik, karbon, sedimen dan membran RO"
+            alt="Ilustrasi dispenser air tanpa jenama bersama contoh filter seramik, karbon, sedimen dan membran RO"
             loading="eager"
             fetchpriority="high"
             decoding="async"
           />
         </div>
+        <figcaption class="home-hero-caption">Ilustrasi kategori produk tanpa jenama. Ia bukan gambar produk dalam stok atau model semasa; sahkan model, spesifikasi dan ketersediaan sebelum membeli.</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="section surface-white" aria-labelledby="local-title">
+    <div class="page-shell premises-story">
+      <figure class="business-photo">
+        <img
+          src="/business-storefront-blue.webp"
+          srcset="/business-storefront-blue-768.webp 768w, /business-storefront-blue-1200.webp 1200w, /business-storefront-blue.webp 1448w"
+          sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) calc(100vw - 48px), (max-width: 1228px) calc(54.6vw - 29px), 642px"
+          width="1448"
+          height="1086"
+          alt="Premis Penapis Air Kesihatan di Jalan Intan 12, Taman Cahaya Masai, Pasir Gudang"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption><span>Lokasi sebenar</span><p>Gambar terdahulu premis yang diperkemas untuk web. Produk, jenama dan stok semasa perlu disahkan.</p></figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">Perniagaan tempatan</p>
+        <h2 id="local-title">Penapis Air Kesihatan di Taman Cahaya Masai.</h2>
+        <p class="lede">Hubungi kami di {site.address.display}. Perniagaan ini dikendalikan oleh {site.legalName} ({site.registration}), sebuah perniagaan Johor yang dimulakan pada {site.started}.</p>
+        <p>Tarikh tersebut merujuk kepada perniagaan berdaftar. Sebelum datang, sahkan waktu, model, stok atau kesesuaian servis melalui WhatsApp atau telefon.</p>
+        <div class="cta-row">
+          <a class="button button-secondary" href={site.directions} target="_blank" rel="noopener">Arah ke lokasi <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="/tentang/">Tentang perniagaan <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </div>
   </section>
 

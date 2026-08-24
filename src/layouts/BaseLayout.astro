@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileContactBar from '../components/MobileContactBar.astro';
-import { absoluteUrl, localBusinessSchema, site } from '../data/site';
+import { absoluteUrl, localBusinessSchema, operatorSchema, site, websiteSchema } from '../data/site';
 import '../styles/global.css';
 
 interface Props {
@@ -11,9 +11,14 @@ interface Props {
   path?: string;
   image?: string;
   imageAlt?: string;
+  imageType?: string;
   noindex?: boolean;
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
   bodyClass?: string;
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
+  ogType?: 'website' | 'article';
+  datePublished?: string;
+  dateModified?: string;
 }
 
 const {
@@ -22,16 +27,45 @@ const {
   path = Astro.url.pathname,
   image = '/social-preview.png',
   imageAlt = 'Penapis Air Kesihatan — produk, pemilihan, filter gantian dan servis di Pasir Gudang',
+  imageType = 'image/png',
   noindex = false,
   schema = [],
   bodyClass = '',
+  pageType = 'WebPage',
+  ogType = 'website',
+  datePublished,
+  dateModified,
 } = Astro.props;
 
 const canonical = absoluteUrl(path);
 const socialImage = absoluteUrl(image);
 const pageSchemas = Array.isArray(schema) ? schema : [schema];
-const schemas = [localBusinessSchema, ...pageSchemas].filter(Boolean);
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': pageType,
+  '@id': `${canonical}#webpage`,
+  url: canonical,
+  name: title,
+  description,
+  inLanguage: 'ms-MY',
+  isPartOf: { '@id': `${site.url}/#website` },
+  about: { '@id': `${site.url}/#business` },
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    '@id': `${canonical}#primaryimage`,
+    url: socialImage,
+    contentUrl: socialImage,
+    width: 1200,
+    height: 630,
+  },
+};
+const schemas = noindex
+  ? []
+  : [operatorSchema, localBusinessSchema, ...(path === '/' ? [websiteSchema] : []), webPageSchema, ...pageSchemas].filter(Boolean);
 const jsonLd = JSON.stringify(schemas).replace(/</g, '\\u003c');
+const robots = noindex
+  ? 'noindex, follow'
+  : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 ---
 
 <!doctype html>
@@ -42,33 +76,36 @@ const jsonLd = JSON.stringify(schemas).replace(/</g, '\\u003c');
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="ms-MY" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
-    {noindex && <meta name="robots" content="noindex, follow" />}
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="ms_MY" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:secure_url" content={socialImage} />
+    <meta property="og:image:type" content={imageType} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={imageAlt} />
+    {datePublished && <meta property="article:published_time" content={datePublished} />}
+    {dateModified && <meta property="article:modified_time" content={dateModified} />}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     <meta name="theme-color" content="#0b3f6f" />
     <meta name="format-detection" content="telephone=no" />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <script type="application/ld+json" is:inline set:html={jsonLd} />
+    {!noindex && <script type="application/ld+json" is:inline set:html={jsonLd} />}
   </head>
   <body class={bodyClass}>
     <a class="skip-link" href="#main-content">Terus ke kandungan</a>

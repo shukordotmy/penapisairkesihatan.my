@@ -2,13 +2,24 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactBand from '../components/ContactBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { absoluteUrl, breadcrumbSchema, site, whatsappUrl } from '../data/site';
 
 const title = 'Penapis Air Rumah Pasir Gudang | RO, Mineral & Dispenser';
-const description = 'Jualan penapis RO, sistem mineral, dispenser serta pilihan penapis indoor dan outdoor. Semak model dan stok di Pasir Gudang.';
+const description = 'Jualan dan servis sistem penapis air RO, mineral dan dispenser di Pasir Gudang. Semak model, stok, ruang dan keperluan penjagaan dahulu.';
 const path = '/penapis-air-rumah/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Penapis air rumah', href: path }];
-const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@type': 'Service', name: 'Bantuan memilih penapis air rumah', url: absoluteUrl(path), provider: { '@id': `${site.url}/#business` }, description }];
+const schema = [breadcrumbSchema(crumbs), {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${absoluteUrl(path)}#selection-service`,
+  name: 'Bantuan memilih penapis air rumah',
+  serviceType: 'Bantuan memilih sistem RO, mineral dan dispenser air',
+  url: absoluteUrl(path),
+  mainEntityOfPage: { '@id': `${absoluteUrl(path)}#webpage` },
+  provider: { '@id': `${site.url}/#business` },
+  description,
+}];
 ---
 
 <BaseLayout title={title} description={description} path={path} schema={schema}>
@@ -16,36 +27,36 @@ const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@
   <header class="page-hero">
     <div class="page-shell page-hero-grid">
       <div>
-        <p class="eyebrow">RO · Mineral · Dispenser · Indoor · Outdoor</p>
-        <h1>Pilih sistem mengikut titik penggunaan dan cara ia akan dijaga.</h1>
-        <p class="page-hero-copy">Kami menyediakan pilihan untuk air minuman, dispenser, ruang dalam rumah dan laluan air utama di luar rumah. Model, stok, pemasangan dan penyelenggaraan disahkan semasa pertanyaan.</p>
+        <p class="eyebrow">Jualan: RO · Mineral · Dispenser | Servis: Indoor · Outdoor</p>
+        <h1>Penapis air rumah: RO, sistem mineral dan dispenser.</h1>
+        <p class="page-hero-copy">Untuk jualan, kami menerima pertanyaan bagi sistem RO, sistem mineral dan dispenser air. Bagi penapis indoor atau outdoor sedia ada, pertanyaan servis disemak mengikut model, keadaan dan alat ganti.</p>
       </div>
       <aside class="page-hero-aside">
         <strong>Mahu cadangan awal?</strong>
         <p>Beritahu lokasi, jumlah pengguna, kegunaan utama dan bajet yang selesa.</p>
-        <a class="button" href={whatsappUrl('Salam, saya mahu memilih penapis air. Lokasi: ____. Jenis dicari (RO/mineral/dispenser/indoor/outdoor): ____. Jumlah pengguna: ____. Kegunaan utama: ____. Bajet: ____.')} target="_blank" rel="noopener">Minta cadangan <span aria-hidden="true">↗</span></a>
+        <a class="button" href={whatsappUrl('Salam, saya mahu membuat semakan penapis air. Lokasi: ____. Keperluan (jualan RO/mineral/dispenser atau servis indoor/outdoor): ____. Jumlah pengguna: ____. Kegunaan utama: ____. Bajet: ____.')} target="_blank" rel="noopener">Minta cadangan <span aria-hidden="true">↗</span></a>
       </aside>
     </div>
   </header>
 
   <section class="section surface-white" aria-labelledby="categories-title">
     <div class="page-shell">
-      <div class="section-heading"><div><p class="eyebrow">Kategori produk</p><h2 id="categories-title">Lima titik mula untuk pertanyaan anda.</h2></div><p>Istilah kategori menerangkan susunan umum, bukan jaminan prestasi. Sahkan fungsi, model, komponen dan bukti produk sebelum membuat keputusan.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">Jualan & servis</p><h2 id="categories-title">Mulakan dengan skop yang telah disahkan.</h2></div><p>Istilah kategori menerangkan susunan umum, bukan jaminan prestasi. Sahkan fungsi, model, komponen dan bukti produk sebelum membuat keputusan.</p></div>
       <div class="info-grid">
-        <article class="info-item"><span>01 · RO</span><h3>Penapis reverse osmosis</h3><p>Untuk pertanyaan sistem RO, bincangkan kadar penggunaan, ruang, aliran, tangki, saliran dan jadual komponen.</p></article>
-        <article class="info-item"><span>02 · Mineral</span><h3>Sistem penapis mineral</h3><p>Minta maklumat peringkat filter dan spesifikasi model; nama kategori tidak membuktikan kandungan mineral atau hasil kesihatan tertentu.</p></article>
-        <article class="info-item"><span>03 · Dispenser</span><h3>Dispenser air</h3><p>Semak jenis keluaran air, kapasiti, ruang pengudaraan, elektrik dan cara mendapatkan filter serta servis.</p></article>
-        <article class="info-item"><span>04 · Indoor</span><h3>Penapis dalam rumah</h3><p>Untuk titik minum, sinki, bawah sinki atau kaunter, ukur ruang dan akses yang diperlukan untuk menukar filter.</p></article>
-        <article class="info-item"><span>05 · Outdoor</span><h3>Penapis luar rumah</h3><p>Untuk laluan masuk air, semak lokasi injap, aliran, tekanan, saliran dan ruang penyelenggaraan.</p></article>
+        <article class="info-item"><span>01 · Jualan & servis</span><h3>Penapis reverse osmosis</h3><p>Untuk pertanyaan sistem RO, bincangkan kadar penggunaan, ruang, aliran, tangki, saliran dan jadual komponen.</p></article>
+        <article class="info-item"><span>02 · Jualan & servis</span><h3>Sistem penapis mineral</h3><p>Minta maklumat peringkat filter dan spesifikasi model; nama kategori tidak membuktikan kandungan mineral atau hasil kesihatan tertentu.</p></article>
+        <article class="info-item"><span>03 · Jualan & servis</span><h3>Dispenser air</h3><p>Semak jenis keluaran air, kapasiti, ruang pengudaraan, elektrik dan cara mendapatkan filter serta servis.</p></article>
+        <article class="info-item"><span>04 · Servis unit sedia ada</span><h3>Penapis dalam rumah</h3><p>Untuk titik minum, sinki, bawah sinki atau kaunter, hantar gambar susunan unit dan label model bagi semakan servis.</p></article>
+        <article class="info-item"><span>05 · Servis unit sedia ada</span><h3>Penapis luar rumah</h3><p>Untuk sistem pada laluan masuk air, sertakan gambar housing, injap, paip, sambungan dan ruang penyelenggaraan.</p></article>
         <article class="info-item"><span>06 · Penjagaan</span><h3>Filter & servis selepas jualan</h3><p>Bandingkan ketersediaan cartridge, jadual pengeluar, kos penjagaan dan bantuan servis bersama harga awal.</p></article>
       </div>
-      <p class="source-note">Hubungi kami untuk mengesahkan jenama, model, stok, harga, pemasangan dan keserasian semasa.</p>
+      <p class="source-note">Skop yang disahkan untuk penapis indoor dan outdoor ialah servis unit sedia ada. Jualan unit baharu, jenama, model, stok, harga, pemasangan dan keserasian perlu disahkan secara khusus. Untuk istilah kategori, baca <a href="/panduan/penapis-air-ro-atau-mineral/">perbandingan penapis air RO dan mineral</a>.</p>
     </div>
   </section>
 
   <section class="section" aria-labelledby="choose-title">
     <div class="page-shell">
-      <div class="section-heading"><div><p class="eyebrow">Empat keputusan awal</p><h2 id="choose-title">Tentukan fungsi sebelum melihat model.</h2></div><p>Nama kategori boleh berbeza antara pengeluar. Gunakan soalan ini untuk menjelaskan apa yang rumah anda benar-benar perlukan.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">Enam keputusan awal</p><h2 id="choose-title">Tentukan fungsi sebelum melihat model.</h2></div><p>Nama kategori boleh berbeza antara pengeluar. Gunakan soalan ini untuk menjelaskan apa yang rumah anda benar-benar perlukan.</p></div>
       <div class="info-grid">
         <article class="info-item"><span>01 · Kegunaan</span><h3>Minuman atau seluruh rumah?</h3><p>Sistem di titik minum dan sistem di laluan masuk rumah menyelesaikan keperluan yang berbeza.</p></article>
         <article class="info-item"><span>02 · Ruang</span><h3>Di mana ia akan diletakkan?</h3><p>Periksa ruang kaunter, bawah sinki, sumber elektrik, saliran dan laluan paip sebelum memilih.</p></article>
@@ -91,6 +102,17 @@ const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@
       <div class="simple-panel"><p><strong>Maklumat untuk dihantar:</strong></p><ul class="check-list"><li>Kawasan rumah</li><li>Jumlah pengguna</li><li>Kegunaan utama</li><li>Ruang pemasangan</li><li>Bajet yang selesa</li></ul><a class="button" href={whatsappUrl('Salam, saya mahu memilih penapis air rumah. Lokasi: ____. Jumlah pengguna: ____. Kegunaan: ____. Ruang: ____. Bajet: ____.')} target="_blank" rel="noopener">Hantar di WhatsApp <span aria-hidden="true">↗</span></a></div>
     </div>
   </section>
+
+  <div class="page-shell">
+    <RelatedLinks
+      heading="Banding, semak dan rancang langkah seterusnya"
+      items={[
+        { href: '/panduan/cara-pilih-penapis-air-rumah/', label: 'Panduan membeli', title: 'Cara pilih penapis air rumah tanpa tersalah beli' },
+        { href: '/tukar-filter/', label: 'Filter gantian', title: 'Semak model sebelum menukar filter' },
+        { href: '/servis-penapis-air-pasir-gudang/', label: 'Unit sedia ada', title: 'Servis penapis air di Pasir Gudang' },
+      ]}
+    />
+  </div>
 
   <ContactBand heading="Pilih sistem yang anda sanggup jaga." copy="Beritahu cara rumah anda menggunakan air. Kami bantu anda memulakan perbandingan dengan soalan yang betul." message="Salam, saya mahu memilih penapis air rumah. Lokasi: ____. Jumlah pengguna: ____. Kegunaan utama: ____. Bajet: ____." />
 </BaseLayout>

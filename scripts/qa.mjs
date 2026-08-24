@@ -26,6 +26,8 @@ const routes = [
   '/panduan/cara-pilih-penapis-air-rumah/',
   '/panduan/bila-perlu-tukar-filter-penapis-air/',
   '/panduan/tanda-penapis-air-perlu-servis/',
+  '/panduan/penapis-air-ro-atau-mineral/',
+  '/panduan/penapis-air-indoor-atau-outdoor/',
   '/tentang/',
   '/hubungi/',
   '/soalan-lazim/',

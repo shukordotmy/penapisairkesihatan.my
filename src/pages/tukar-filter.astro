@@ -2,20 +2,38 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactBand from '../components/ContactBand.astro';
+import FAQList from '../components/FAQList.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { absoluteUrl, breadcrumbSchema, site, whatsappUrl } from '../data/site';
 
-const title = 'Tukar Filter Penapis Air di Pasir Gudang | Semak Model Dahulu';
+const title = 'Tukar Filter Penapis Air Pasir Gudang | Semak Model';
 const description = 'Jangan tersalah beli cartridge. Hantar gambar filter dan label model untuk semakan kesesuaian penggantian di Pasir Gudang.';
 const path = '/tukar-filter/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Tukar filter', href: path }];
-const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@type': 'Service', name: 'Semakan filter gantian penapis air', url: absoluteUrl(path), provider: { '@id': `${site.url}/#business` }, description }];
+const faqs = [
+  { question: 'Adakah cartridge yang sama saiz pasti serasi?', answer: 'Tidak semestinya. Panjang atau diameter yang hampir sama tidak mengesahkan jenis media, kadar aliran, sambungan, gasket atau spesifikasi lain. Kod dan model tepat tetap perlu diperiksa.' },
+  { question: 'Bagaimana jika label model sudah hilang?', answer: 'Hantar gambar unit dari beberapa sudut, susunan filter, sambungan dan cartridge lama. Ukuran mungkin membantu, tetapi semakan melalui gambar tidak sentiasa mencukupi untuk mengesahkan keserasian.' },
+  { question: 'Perlukah semua filter ditukar pada masa yang sama?', answer: 'Tidak ada satu aturan untuk semua sistem. Setiap peringkat mungkin mempunyai fungsi dan jadual berbeza. Rujuk arahan pengeluar atau rekod servis untuk model tepat.' },
+  { question: 'Bolehkah harga disemak melalui WhatsApp?', answer: 'Maklumat awal boleh disemak selepas model dan komponen dikenal pasti. Harga tepat bergantung pada item, kuantiti, keadaan unit, kerja yang diperlukan dan ketersediaan semasa.' },
+];
+const schema = [breadcrumbSchema(crumbs), {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${absoluteUrl(path)}#service`,
+  name: 'Semakan filter gantian penapis air',
+  serviceType: 'Semakan dan penggantian filter penapis air',
+  url: absoluteUrl(path),
+  mainEntityOfPage: { '@id': `${absoluteUrl(path)}#webpage` },
+  provider: { '@id': `${site.url}/#business` },
+  description,
+}];
 ---
 
 <BaseLayout title={title} description={description} path={path} schema={schema}>
   <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
   <header class="page-hero">
     <div class="page-shell page-hero-grid">
-      <div><p class="eyebrow">Filter & cartridge gantian</p><h1>Nampak hampir sama belum tentu serasi.</h1><p class="page-hero-copy">Saiz, sambungan, susunan media dan spesifikasi boleh berbeza walaupun rupa cartridge serupa. Kenal pasti model sebelum membeli atau memasang.</p></div>
+      <div><p class="eyebrow">Filter & cartridge gantian</p><h1>Tukar filter penapis air selepas model disahkan.</h1><p class="page-hero-copy">Saiz, sambungan, susunan media dan spesifikasi boleh berbeza walaupun rupa cartridge serupa. Kenal pasti model sebelum membeli atau memasang.</p></div>
       <aside class="page-hero-aside"><strong>Semakan melalui gambar</strong><p>Ambil gambar cartridge lama, label model unit dan sambungan yang berkaitan.</p><a class="button" href={whatsappUrl('Salam, saya mahu semak filter gantian. Jenama/model unit: ____. Bilangan filter: ____. Tarikh tukar terakhir: ____.')} target="_blank" rel="noopener">Semak kesesuaian <span aria-hidden="true">↗</span></a></aside>
     </div>
   </header>
@@ -27,6 +45,23 @@ const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@
         <article class="numbered-item"><h3>Unit penuh</h3><p>Gambar keseluruhan membantu mengenal pasti jenis sistem dan susunan komponen.</p></article>
         <article class="numbered-item"><h3>Label model</h3><p>Ambil gambar dekat pada jenama, nombor model dan spesifikasi yang masih jelas.</p></article>
         <article class="numbered-item"><h3>Filter lama</h3><p>Tunjukkan bentuk, ukuran relatif, kepala sambungan dan kod yang tercetak.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="identify-title">
+    <div class="page-shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">Kenal pasti item</p><h2 id="identify-title">“Filter” boleh merujuk kepada komponen yang berbeza.</h2></div>
+        <p>Nama umum tidak cukup untuk pembelian. Cari kod, ukuran, sambungan dan kedudukan komponen dalam sistem sebelum membuat perbandingan.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-item"><span>01 · Cartridge housing</span><h3>Filter yang masuk ke dalam bekas</h3><p>Semak panjang, diameter, jenis media, gasket dan susunan. Housing yang kelihatan serupa boleh menggunakan cartridge berlainan.</p></article>
+        <article class="info-item"><span>02 · Quick-change</span><h3>Cartridge dengan kepala khusus</h3><p>Sesetengah unit menggunakan sambungan atau mekanisme kunci tersendiri. Bentuk luaran sahaja tidak mengesahkan keserasian.</p></article>
+        <article class="info-item"><span>03 · Inline</span><h3>Filter terus pada hos</h3><p>Catat arah aliran, saiz hos, jenis fitting dan kod pada badan filter sebelum ia dikeluarkan.</p></article>
+        <article class="info-item"><span>04 · Membran</span><h3>Komponen pada sistem RO</h3><p>Membran bukan pengganti automatik untuk cartridge lain. Sahkan model, housing, sambungan dan spesifikasi sistem.</p></article>
+        <article class="info-item"><span>05 · Label unit</span><h3>Model mesin atau dispenser</h3><p>Label pada belakang, sisi atau bawah unit membantu memadankan senarai komponen yang digunakan oleh model tersebut.</p></article>
+        <article class="info-item"><span>06 · Tanpa label</span><h3>Perlu lebih banyak bukti visual</h3><p>Ambil gambar susunan, sambungan dan ukuran. Jika maklumat masih tidak mencukupi, pemeriksaan fizikal mungkin diperlukan.</p></article>
       </div>
     </div>
   </section>
@@ -49,6 +84,40 @@ const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@
       <div class="simple-panel"><ul class="check-list"><li>Rujuk arahan khusus model</li><li>Jangan paksa housing atau sambungan</li><li>Gunakan komponen yang disahkan serasi</li><li>Periksa kebocoran selepas pemasangan</li><li>Ikut arahan flushing pengeluar</li></ul></div>
     </div>
   </section>
+
+  <section class="section surface-white" aria-labelledby="quote-title">
+    <div class="page-shell split-content">
+      <div>
+        <p class="eyebrow">Semakan stok & kos</p>
+        <h2 id="quote-title">Maklumat yang mempengaruhi semakan harga.</h2>
+        <p class="lede">Harga tidak boleh dipastikan hanya daripada perkataan “filter”. Item tepat, bilangan komponen dan kerja pada unit perlu dikenal pasti dahulu.</p>
+      </div>
+      <ul class="fact-list">
+        <li><strong>Komponen</strong><span>Kod, jenis dan kuantiti filter</span></li>
+        <li><strong>Unit</strong><span>Jenama, model dan susunan sistem</span></li>
+        <li><strong>Keadaan</strong><span>Kebocoran, housing atau sambungan berkaitan</span></li>
+        <li><strong>Kerja</strong><span>Bekalan sahaja atau bantuan penggantian</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="filter-faq-title">
+    <div class="page-shell faq-layout">
+      <div class="faq-intro"><p class="eyebrow">Sebelum membeli</p><h2 id="filter-faq-title">Soalan tentang filter gantian.</h2></div>
+      <FAQList items={faqs} />
+    </div>
+  </section>
+
+  <div class="page-shell">
+    <RelatedLinks
+      heading="Fahami jadual dan tanda sebelum menukar"
+      items={[
+        { href: '/panduan/bila-perlu-tukar-filter-penapis-air/', label: 'Jadual penggantian', title: 'Bila perlu tukar filter penapis air?' },
+        { href: '/panduan/tanda-penapis-air-perlu-servis/', label: 'Pemeriksaan', title: '6 tanda penapis air mungkin perlu diservis' },
+        { href: '/servis-penapis-air-pasir-gudang/', label: 'Servis', title: 'Semak servis unit sedia ada di Pasir Gudang' },
+      ]}
+    />
+  </div>
 
   <ContactBand heading="Semak filter sebelum anda membelinya." copy="Hantar foto label dan cartridge lama. Kami akan semak maklumat yang diperlukan dan memaklumkan langkah seterusnya." message="Salam, saya mahu semak filter gantian. Jenama/model: ____. Tarikh tukar terakhir: ____." />
 </BaseLayout>

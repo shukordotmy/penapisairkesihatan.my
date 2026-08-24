@@ -2,17 +2,32 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ContactBand from '../../components/ContactBand.astro';
-import { breadcrumbSchema, guides } from '../../data/site';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { absoluteUrl, breadcrumbSchema, guides } from '../../data/site';
 
 const title = 'Panduan Penapis Air Rumah & Servis | Pasir Gudang';
 const description = 'Panduan praktikal untuk memilih, menyelenggara dan memeriksa penapis air rumah tanpa dakwaan sensasi atau jalan pintas.';
 const path = '/panduan/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Panduan', href: path }];
+const schema = [
+  breadcrumbSchema(crumbs),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Panduan penapis air rumah dan servis',
+    itemListElement: guides.map((guide, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: guide.title,
+      url: absoluteUrl(`/panduan/${guide.slug}/`),
+    })),
+  },
+];
 ---
 
-<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)}>
+<BaseLayout title={title} description={description} path={path} schema={schema} pageType="CollectionPage">
   <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
-  <header class="page-hero"><div class="page-shell page-hero-grid"><div><p class="eyebrow">Pusat panduan</p><h1>Fahami sistem sebelum membuat keputusan.</h1><p class="page-hero-copy">Nota praktikal dalam Bahasa Melayu tentang pemilihan, filter gantian dan tanda yang patut diperiksa.</p></div><aside class="page-hero-aside"><strong>Prinsip editorial</strong><p>Kami mengelakkan dakwaan perubatan, ketakutan dan angka prestasi tanpa bukti model yang tepat.</p></aside></div></header>
+  <header class="page-hero"><div class="page-shell page-hero-grid"><div><p class="eyebrow">Pusat panduan</p><h1>Panduan penapis air rumah dan servis.</h1><p class="page-hero-copy">Nota praktikal dalam Bahasa Melayu tentang pemilihan, filter gantian dan tanda yang patut diperiksa sebelum membeli atau menempah servis.</p></div><aside class="page-hero-aside"><strong>Prinsip editorial</strong><p>Kami mengelakkan dakwaan perubatan, ketakutan dan angka prestasi tanpa bukti model yang tepat.</p></aside></div></header>
   <section class="section surface-white">
     <div class="page-shell guide-grid">
       {guides.map((guide) => (
@@ -21,6 +36,22 @@ const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Panduan', href: p
           <h2>{guide.title}</h2><p>{guide.description}</p><span class="guide-card-arrow" aria-hidden="true">↗</span>
         </a>
       ))}
+    </div>
+  </section>
+  <section class="section surface-mint">
+    <div class="page-shell split-content">
+      <div><p class="eyebrow">Gunakan panduan bersama maklumat model</p><h2>Daripada bacaan umum kepada semakan sebenar.</h2><p class="lede">Panduan membantu anda menyediakan soalan. Model, komponen, keadaan unit, stok dan kerja sebenar masih perlu disahkan untuk pertanyaan anda.</p></div>
+      <div class="simple-panel"><p><strong>Tiga laluan utama:</strong></p><ul class="check-list"><li>Banding sistem RO, mineral dan dispenser</li><li>Kenal pasti filter atau cartridge gantian</li><li>Hantar unit sedia ada untuk semakan servis</li></ul></div>
+    </div>
+    <div class="page-shell">
+      <RelatedLinks
+        heading="Pilih langkah yang sepadan dengan keperluan anda"
+        items={[
+          { href: '/penapis-air-rumah/', label: 'Jualan & pemilihan', title: 'Penapis air rumah: RO, mineral dan dispenser' },
+          { href: '/tukar-filter/', label: 'Komponen', title: 'Semak filter gantian berdasarkan model' },
+          { href: '/servis-penapis-air-pasir-gudang/', label: 'Unit sedia ada', title: 'Servis penapis air di Pasir Gudang' },
+        ]}
+      />
     </div>
   </section>
   <ContactBand heading="Perlukan jawapan untuk unit tertentu?" copy="Panduan umum tidak menggantikan semakan model. Hantar gambar unit dan label untuk pertanyaan khusus." message="Salam, saya membaca panduan dan ingin bertanya tentang penapis air saya. Jenama/model: ____." />

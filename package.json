@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "assets": "node scripts/generate-og.mjs",
-    "build": "npm run assets && astro check && astro build",
+    "build": "npm run assets && astro check && astro build && npm run seo:audit",
+    "seo:audit": "node scripts/seo-audit.mjs",
     "qa": "node scripts/qa.mjs",
     "preview": "astro preview",
     "check": "astro check"

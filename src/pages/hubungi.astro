@@ -9,23 +9,37 @@ const path = '/hubungi/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Hubungi', href: path }];
 ---
 
-<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)}>
+<BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)} pageType="ContactPage">
   <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
   <header class="contact-hero">
     <div class="page-shell contact-hero-grid">
       <div>
         <p class="eyebrow eyebrow-light">Hubungi kami</p>
-        <h1>Satu gambar boleh menjimatkan banyak soalan.</h1>
-        <p>Untuk semakan penapis atau servis, hantarkan gambar penuh unit, label model, lokasi dan perkara yang anda perlukan.</p>
+        <h1>Hubungi Penapis Air Kesihatan di Pasir Gudang.</h1>
+        <p>Untuk jualan atau servis sistem RO, mineral dan dispenser—atau servis penapis indoor dan outdoor—hantarkan gambar penuh unit, label model, lokasi dan perkara yang anda perlukan.</p>
         <a class="button button-paper" href={whatsappUrl('Salam, saya ingin membuat pertanyaan. Lokasi: ____. Jenama/model: ____. Keperluan atau masalah: ____.')} target="_blank" rel="noopener">Buka WhatsApp <span aria-hidden="true">↗</span></a>
       </div>
       <div class="contact-methods">
         <a href={`tel:${site.phoneHref}`}><span>Telefon</span><strong>{site.phoneDisplay}</strong><i aria-hidden="true">↗</i></a>
         <a href={`mailto:${site.email}`}><span>E-mel</span><strong>{site.email}</strong><i aria-hidden="true">↗</i></a>
-        <a href={site.facebook} target="_blank" rel="noopener"><span>Facebook</span><strong>Penapis air shukor</strong><i aria-hidden="true">↗</i></a>
+        <a href={site.facebook} target="_blank" rel="noopener"><span>Facebook</span><strong>Penapis Air Kesihatan di Facebook</strong><i aria-hidden="true">↗</i></a>
       </div>
     </div>
   </header>
+
+  <section class="section-tight surface-white" aria-labelledby="contact-scope-title">
+    <div class="page-shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">Maklumat untuk pertanyaan</p><h2 id="contact-scope-title">Pilih saluran, kemudian beri konteks yang tepat.</h2></div>
+        <p>WhatsApp paling sesuai untuk gambar dan label model. Telefon sesuai untuk pertanyaan ringkas, manakala e-mel boleh digunakan bagi maklumat bertulis yang lebih panjang.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-item"><span>01 · Jualan & servis</span><h3>RO, mineral dan dispenser</h3><p>Nyatakan jenis sistem yang dicari atau model unit sedia ada, jumlah pengguna dan kegunaan utama.</p><a class="text-link" href="/penapis-air-rumah/">Lihat pilihan penapis air <span aria-hidden="true">→</span></a></article>
+        <article class="info-item"><span>02 · Servis</span><h3>Penapis indoor & outdoor</h3><p>Sertakan gambar keseluruhan pemasangan, label, sambungan dan masalah yang diperhatikan.</p><a class="text-link" href="/servis-penapis-air-pasir-gudang/">Semak servis penapis air <span aria-hidden="true">→</span></a></article>
+        <article class="info-item"><span>03 · Filter</span><h3>Cartridge dan komponen gantian</h3><p>Hantar kod filter, gambar cartridge lama dan susunan sistem untuk semakan keserasian.</p><a class="text-link" href="/tukar-filter/">Sediakan maklumat filter <span aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </section>
 
   <section class="section surface-white" aria-labelledby="location-title">
     <div class="page-shell location-grid">

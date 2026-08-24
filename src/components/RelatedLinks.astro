@@ -1,0 +1,29 @@
+---
+interface Item {
+  href: string;
+  label: string;
+  title: string;
+}
+
+interface Props {
+  heading?: string;
+  items: readonly Item[];
+}
+
+const { heading = 'Teruskan dengan panduan yang berkaitan', items } = Astro.props;
+const headingId = `related-${heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'links'}`;
+---
+
+<nav class="related-links" aria-labelledby={headingId}>
+  <p class="eyebrow">Bacaan & langkah seterusnya</p>
+  <h2 id={headingId}>{heading}</h2>
+  <div class="related-links-grid">
+    {items.map((item) => (
+      <a href={item.href}>
+        <span>{item.label}</span>
+        <strong>{item.title}</strong>
+        <i aria-hidden="true">→</i>
+      </a>
+    ))}
+  </div>
+</nav>

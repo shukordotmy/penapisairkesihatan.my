@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactBand from '../components/ContactBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { absoluteUrl, breadcrumbSchema, site } from '../data/site';
 
 interface Props {
@@ -11,10 +12,13 @@ interface Props {
   category: string;
   readingTime: string;
   datePublished: string;
+  dateModified: string;
+  related: ReadonlyArray<{ href: string; label: string; title: string }>;
 }
 
-const { title, description, slug, category, readingTime, datePublished } = Astro.props;
+const { title, description, slug, category, readingTime, datePublished, dateModified, related } = Astro.props;
 const path = `/panduan/${slug}/`;
+const socialImage = `/panduan-${slug}-social.png`;
 const crumbs = [
   { label: 'Laman utama', href: '/' },
   { label: 'Panduan', href: '/panduan/' },
@@ -28,17 +32,35 @@ const schema = [
     headline: title,
     description,
     datePublished,
-    dateModified: datePublished,
+    dateModified,
     inLanguage: 'ms-MY',
-    mainEntityOfPage: absoluteUrl(path),
-    author: { '@type': 'Organization', name: site.name, url: site.url },
+    mainEntityOfPage: { '@id': `${absoluteUrl(path)}#webpage` },
+    author: { '@type': 'Organization', name: site.name, url: absoluteUrl('/tentang/') },
     publisher: { '@id': `${site.url}/#business` },
-    image: absoluteUrl('/social-preview.png'),
+    image: absoluteUrl(socialImage),
+    articleSection: category,
   },
 ];
+const formatDate = (value: string) => new Intl.DateTimeFormat('ms-MY', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'Asia/Kuala_Lumpur',
+}).format(new Date(`${value}T00:00:00+08:00`));
 ---
 
-<BaseLayout title={`${title} | ${site.name}`} description={description} path={path} schema={schema} bodyClass="article-page">
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  schema={schema}
+  bodyClass="article-page"
+  ogType="article"
+  datePublished={datePublished}
+  dateModified={dateModified}
+  image={socialImage}
+  imageAlt={`Panduan ${site.name}: ${title}`}
+>
   <div class="page-shell article-shell">
     <Breadcrumbs items={crumbs} />
     <header class="article-header">
@@ -46,14 +68,23 @@ const schema = [
       <h1>{title}</h1>
       <p class="article-deck">{description}</p>
       <div class="article-meta">
+        <span>Oleh <a href="/tentang/">{site.name}</a></span>
+        <span aria-hidden="true">•</span>
         <span>{readingTime} bacaan</span>
         <span aria-hidden="true">•</span>
-        <time datetime={datePublished}>Diterbitkan 20 Ogos 2026</time>
+        <time datetime={datePublished}>Diterbitkan {formatDate(datePublished)}</time>
+        {dateModified !== datePublished && (
+          <>
+            <span aria-hidden="true">•</span>
+            <time datetime={dateModified}>Dikemas kini {formatDate(dateModified)}</time>
+          </>
+        )}
       </div>
     </header>
     <article class="prose">
       <slot />
     </article>
+    <RelatedLinks heading="Panduan dan langkah berkaitan" items={related} />
   </div>
   <ContactBand
     heading="Masih tak pasti tentang sistem anda?"

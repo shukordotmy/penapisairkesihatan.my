@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FAQList from '../components/FAQList.astro';
 import ContactBand from '../components/ContactBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { breadcrumbSchema, site } from '../data/site';
 
 const title = 'Soalan Lazim Penapis Air, Servis & Filter | Pasir Gudang';
@@ -26,7 +27,25 @@ const faqs = [
 
 <BaseLayout title={title} description={description} path={path} schema={breadcrumbSchema(crumbs)}>
   <div class="page-shell"><Breadcrumbs items={crumbs} /></div>
-  <header class="page-hero"><div class="page-shell page-hero-grid"><div><p class="eyebrow">Soalan lazim</p><h1>Jawapan yang jelas, termasuk apabila jawapannya “perlu semak dahulu”.</h1><p class="page-hero-copy">Model, keadaan dan lokasi boleh mengubah cadangan. Ketepatan lebih penting daripada jawapan cepat yang terlalu umum.</p></div><aside class="page-hero-aside"><strong>Tidak jumpa jawapan?</strong><p>Hubungi terus melalui WhatsApp dan sertakan gambar sistem anda.</p><a class="text-link" href={`tel:${site.phoneHref}`}>Telefon {site.phoneDisplay}</a></aside></div></header>
-  <section class="section surface-white"><div class="page-shell faq-wide"><FAQList items={faqs} /></div></section>
+  <header class="page-hero"><div class="page-shell page-hero-grid"><div><p class="eyebrow">Soalan lazim</p><h1>Soalan lazim tentang penapis air, servis dan filter.</h1><p class="page-hero-copy">Model, keadaan dan lokasi boleh mengubah cadangan. Ketepatan lebih penting daripada jawapan cepat yang terlalu umum.</p></div><aside class="page-hero-aside"><strong>Tidak jumpa jawapan?</strong><p>Hubungi terus melalui WhatsApp dan sertakan gambar sistem anda.</p><a class="text-link" href={`tel:${site.phoneHref}`}>Telefon {site.phoneDisplay}</a></aside></div></header>
+  <section class="section surface-white" aria-labelledby="faq-list-title">
+    <div class="page-shell faq-wide">
+      <div class="section-heading">
+        <div><p class="eyebrow">Jawapan ringkas</p><h2 id="faq-list-title">Pertanyaan yang biasa diterima sebelum jualan atau servis.</h2></div>
+        <p>Gunakan jawapan ini sebagai persediaan awal. Maklumat model, keadaan unit dan lokasi masih perlu disemak untuk pertanyaan sebenar.</p>
+      </div>
+      <FAQList items={faqs} />
+    </div>
+  </section>
+  <div class="page-shell">
+    <RelatedLinks
+      heading="Lihat jawapan yang lebih khusus"
+      items={[
+        { href: '/penapis-air-rumah/', label: 'Pemilihan', title: 'Banding penapis air RO, mineral dan dispenser' },
+        { href: '/tukar-filter/', label: 'Filter gantian', title: 'Kenal pasti model sebelum membeli cartridge' },
+        { href: '/servis-penapis-air-pasir-gudang/', label: 'Servis', title: 'Semak servis penapis air di Pasir Gudang' },
+      ]}
+    />
+  </div>
   <ContactBand heading="Ada soalan yang khusus kepada model anda?" copy="Hantar gambar dan butiran ringkas. Kami akan semak konteks sebelum memberi cadangan." message="Salam, saya ada soalan tentang penapis air. Lokasi: ____. Jenama/model: ____. Soalan: ____." />
 </BaseLayout>

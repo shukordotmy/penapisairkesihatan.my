@@ -1,11 +1,12 @@
 ---
 interface Props {
   variant?: 'wordmark' | 'primary' | 'reversed' | 'icon';
+  loading?: 'eager' | 'lazy';
 }
 
-const { variant = 'wordmark' } = Astro.props;
+const { variant = 'wordmark', loading = 'eager' } = Astro.props;
 const assets = {
-  wordmark: { src: '/brand-wordmark.png', width: 1024, height: 224 },
+  wordmark: { src: '/brand-wordmark-384.png', width: 384, height: 84 },
   primary: { src: '/brand-logo.png', width: 512, height: 345 },
   reversed: { src: '/brand-logo-reversed.png', width: 512, height: 346 },
   icon: { src: '/brand-icon.png', width: 512, height: 512 },
@@ -20,6 +21,7 @@ const asset = assets[variant];
     width={asset.width}
     height={asset.height}
     alt=""
+    loading={loading}
     decoding="async"
   />
 </a>
