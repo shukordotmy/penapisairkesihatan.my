@@ -6,11 +6,12 @@ import ContactBand from '../components/ContactBand.astro';
 import { absoluteUrl, breadcrumbSchema, site, whatsappUrl } from '../data/site';
 
 const title = 'Servis Penapis Air Pasir Gudang | Penapis Air Kesihatan';
-const description = 'Perlukan servis penapis air sedia ada di Pasir Gudang? Hantar gambar unit, label model dan masalah melalui WhatsApp untuk semakan awal.';
+const description = 'Servis penapis RO, sistem mineral, dispenser serta penapis indoor dan outdoor di Pasir Gudang. Hantar gambar dan model untuk semakan.';
 const path = '/servis-penapis-air-pasir-gudang/';
 const crumbs = [{ label: 'Laman utama', href: '/' }, { label: 'Servis penapis air', href: path }];
 const faqs = [
-  { question: 'Boleh servis penapis air lama?', answer: 'Terdapat bukti awam bahawa perniagaan ini membantu servis penapis air sedia ada atau lama. Namun, kesesuaian bergantung pada model, keadaan unit dan alat ganti. Hantar gambar untuk semakan.' },
+  { question: 'Jenis sistem apa yang boleh diservis?', answer: 'Skop merangkumi penapis RO, sistem mineral, dispenser air serta penapis indoor dan outdoor. Unit lama atau sedia ada boleh dipertimbangkan, tetapi keserasian tetap bergantung pada jenama, model, keadaan dan alat ganti.' },
+  { question: 'Adakah anda servis penapis di luar dan di dalam rumah?', answer: 'Ya, pertanyaan servis boleh dibuat untuk penapis yang dipasang di dalam rumah dan sistem outdoor pada laluan masuk air. Hantar gambar keseluruhan pemasangan supaya jenis sistem dapat dikenal pasti.' },
   { question: 'Adakah anda datang ke rumah?', answer: 'Pilihan kunjungan dan liputan perlu disahkan mengikut lokasi serta skop kerja. Kongsi kawasan anda melalui WhatsApp sebelum membuat perancangan.' },
   { question: 'Boleh dapat harga sebelum servis?', answer: 'Kami boleh memahami masalah melalui gambar dan maklumat awal, tetapi harga tepat mungkin memerlukan pemeriksaan sistem dan pengesahan komponen.' },
 ];
@@ -29,8 +30,8 @@ const schema = [
     <div class="page-shell page-hero-grid">
       <div>
         <p class="eyebrow">Servis penapis air · Pasir Gudang</p>
-        <h1>Sistem lama tidak semestinya perlu terus diganti.</h1>
-        <p class="page-hero-copy">Mulakan dengan pemeriksaan maklumat asas. Kami semak model, keadaan yang dilaporkan dan kesesuaian komponen sebelum mencadangkan langkah seterusnya.</p>
+        <h1>Servis penapis air di Pasir Gudang.</h1>
+        <p class="page-hero-copy">Daripada unit air minuman hingga penapis laluan masuk rumah, kami semak model, susunan sistem, keadaan yang dilaporkan dan kesesuaian komponen sebelum mencadangkan langkah seterusnya.</p>
       </div>
       <aside class="page-hero-aside">
         <strong>Hantar 3 perkara</strong>
@@ -40,7 +41,24 @@ const schema = [
     </div>
   </header>
 
-  <section class="section surface-white" aria-labelledby="symptoms-title">
+  <section class="section surface-white" aria-labelledby="systems-title">
+    <div class="page-shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">Jenis sistem</p><h2 id="systems-title">Kenal pasti kategori sebelum menilai servis.</h2></div>
+        <p>Nama kategori membantu memulakan perbualan, tetapi nombor model, susunan filter dan keadaan pemasangan menentukan kerja sebenar.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-item"><span>01 · RO</span><h3>Penapis reverse osmosis</h3><p>Semakan boleh melibatkan filter, membran, aliran, tangki, pam atau sambungan mengikut reka bentuk unit.</p></article>
+        <article class="info-item"><span>02 · Mineral</span><h3>Sistem penapis mineral</h3><p>Kenal pasti model dan peringkat filter dahulu; istilah “mineral” sahaja tidak menentukan komponen atau jadual servis.</p></article>
+        <article class="info-item"><span>03 · Dispenser</span><h3>Dispenser air</h3><p>Kongsi gambar paparan, keluaran air dan label unit jika terdapat kebocoran, aliran berubah atau operasi luar biasa.</p></article>
+        <article class="info-item"><span>04 · Indoor</span><h3>Penapis dalam rumah</h3><p>Termasuk sistem pada sinki, bawah sinki, kaunter atau titik minum, bergantung pada pemasangan sebenar.</p></article>
+        <article class="info-item"><span>05 · Outdoor</span><h3>Penapis luar rumah</h3><p>Untuk sistem pada laluan masuk air utama, sertakan gambar housing, injap, paip dan ruang sekeliling.</p></article>
+        <article class="info-item"><span>06 · Sedia ada</span><h3>Unit lama atau jenama lain</h3><p>Boleh dihantar untuk semakan awal tanpa janji bahawa setiap model atau alat ganti tersedia.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="symptoms-title">
     <div class="page-shell">
       <div class="section-heading">
         <div><p class="eyebrow">Bila patut bertanya</p><h2 id="symptoms-title">Perubahan ini wajar diperiksa.</h2></div>
@@ -57,7 +75,7 @@ const schema = [
     </div>
   </section>
 
-  <section class="section" aria-labelledby="scope-title">
+  <section class="section surface-white" aria-labelledby="scope-title">
     <div class="page-shell split-content">
       <div>
         <p class="eyebrow">Skop ditentukan selepas semakan</p>
@@ -70,6 +88,21 @@ const schema = [
         <li><strong>Berguna</strong><span>Tarikh servis terakhir</span></li>
         <li><strong>Berguna</strong><span>Video ringkas aliran atau kebocoran</span></li>
       </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="checks-title">
+    <div class="page-shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">Semakan mengikut unit</p><h2 id="checks-title">Masalah yang sama boleh datang daripada komponen berbeza.</h2></div>
+        <p>Maklumat ini membantu membezakan keperluan penyelenggaraan biasa daripada pemeriksaan yang lebih khusus.</p>
+      </div>
+      <div class="comparison-list" role="list">
+        {['Filter, cartridge atau membran yang digunakan', 'Aliran dan tekanan sebelum serta selepas sistem', 'Kebocoran pada housing, hos, paip atau sambungan', 'Pam, tangki dan injap jika sistem menggunakannya', 'Operasi dispenser, paparan atau bunyi luar biasa', 'Injap atau proses backwash untuk sistem outdoor jika berkaitan'].map((item, index) => (
+          <div role="listitem"><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></div>
+        ))}
+      </div>
+      <p class="source-note">Senarai ini menerangkan perkara yang boleh diperiksa, bukan janji bahawa semua pembaikan atau komponen tersedia untuk setiap model.</p>
     </div>
   </section>
 

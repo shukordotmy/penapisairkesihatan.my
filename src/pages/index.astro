@@ -1,30 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import WaterCareGraphic from '../components/WaterCareGraphic.astro';
-import FAQList from '../components/FAQList.astro';
-import ContactBand from '../components/ContactBand.astro';
 import { guides, site, whatsappUrl } from '../data/site';
 
-const title = 'Penapis Air & Servis di Pasir Gudang | Penapis Air Kesihatan';
-const description = 'Jualan dan servis penapis air sedia ada di Taman Cahaya Masai, Pasir Gudang. Hantar model atau gambar melalui WhatsApp untuk semakan yang lebih tepat.';
-const faqs = [
-  {
-    question: 'Adakah semua jenama penapis air boleh diservis?',
-    answer: 'Tidak semestinya. Hantar gambar unit, label jenama atau model dan masalah yang berlaku. Kami akan semak kesesuaian alat ganti atau servis sebelum memberi cadangan.',
-  },
-  {
-    question: 'Berapakah harga servis atau filter gantian?',
-    answer: 'Harga bergantung pada model, keadaan sistem, komponen dan skop kerja. Kami tidak meletakkan satu harga umum yang boleh mengelirukan. Kongsi maklumat sistem untuk semakan awal.',
-  },
-  {
-    question: 'Boleh terus datang ke lokasi?',
-    answer: 'Lokasi kami berada di 84, Jalan Intan 12, Taman Cahaya Masai. Oleh sebab waktu operasi awam berbeza antara direktori, hubungi kami dahulu sebelum bergerak.',
-  },
-  {
-    question: 'Bagaimana hendak tahu filter sudah perlu ditukar?',
-    answer: 'Rujuk jadual pengeluar dan perhatikan aliran, kebocoran, bunyi atau perubahan luar biasa. Tempoh sebenar boleh berbeza mengikut penggunaan dan keadaan air. Elakkan meneka hanya berdasarkan warna filter.',
-  },
-];
+const title = 'Penapis Air Pasir Gudang | Jualan & Servis';
+const description = 'Jualan dan servis penapis air RO, sistem mineral, dispenser serta penapis indoor dan outdoor di Taman Cahaya Masai, Pasir Gudang.';
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -34,153 +13,121 @@ const schema = {
   inLanguage: 'ms-MY',
   publisher: { '@id': `${site.url}/#business` },
 };
+
+const services = [
+  {
+    number: '01',
+    title: 'Penapis RO & mineral',
+    copy: 'Sistem air minuman mengikut ruang dan cara penggunaan.',
+    href: '/penapis-air-rumah/',
+  },
+  {
+    number: '02',
+    title: 'Dispenser air',
+    copy: 'Jualan, pemeriksaan unit dan filter gantian.',
+    href: '/servis-penapis-air-pasir-gudang/',
+  },
+  {
+    number: '03',
+    title: 'Penapis indoor & outdoor',
+    copy: 'Servis sistem di dalam rumah atau pada laluan air utama.',
+    href: '/servis-penapis-air-pasir-gudang/',
+  },
+  {
+    number: '04',
+    title: 'Filter & komponen',
+    copy: 'Semakan keserasian berdasarkan gambar, jenama dan model.',
+    href: '/tukar-filter/',
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} path="/" schema={schema}>
   <section class="home-hero">
     <div class="page-shell home-hero-grid">
       <div class="home-hero-copy">
-        <p class="eyebrow">Perniagaan tempatan · Taman Cahaya Masai</p>
-        <h1>Penapis air yang sesuai. <em>Servis yang tetap ada.</em></h1>
-        <p class="home-deck">Jualan, semakan filter gantian dan servis untuk sistem penapis air sedia ada di Pasir Gudang—bermula dengan maklumat yang betul, bukan janji berlebihan.</p>
+        <p class="eyebrow">Taman Cahaya Masai · Pasir Gudang</p>
+        <h1>Penapis air untuk rumah. <em>Jualan & servis.</em></h1>
+        <p class="home-deck">RO, sistem mineral, dispenser serta penapis indoor dan outdoor—semak keperluan anda terus dengan kami.</p>
         <div class="cta-row">
-          <a class="button" href={whatsappUrl('Salam, saya ingin semak penapis air. Lokasi saya: ____. Jenama/model: ____. Keperluan atau masalah: ____.')} target="_blank" rel="noopener">
-            Semak melalui WhatsApp <span aria-hidden="true">↗</span>
+          <a class="button" href={whatsappUrl('Salam, saya ingin bertanya tentang produk atau servis. Lokasi: ____. Jenama/model: ____. Keperluan atau masalah: ____.')} target="_blank" rel="noopener">
+            Tanya di WhatsApp <span aria-hidden="true">↗</span>
           </a>
-          <a class="button button-secondary" href="/penapis-air-rumah/">Cara pilih penapis</a>
+          <a class="button button-secondary" href={`tel:${site.phoneHref}`}>Telefon kami</a>
         </div>
-        <p class="hero-helper">Untuk jawapan lebih cepat, sertakan lokasi, gambar penuh unit dan label model.</p>
+        <p class="hero-helper">Hantar gambar dan label model jika ada.</p>
       </div>
-      <WaterCareGraphic />
-    </div>
-  </section>
 
-  <section class="trust-rail" aria-label="Maklumat utama perniagaan">
-    <div class="page-shell trust-rail-grid">
-      <div><span>01</span><strong>Pasir Gudang</strong><p>Lokasi fizikal di Taman Cahaya Masai.</p></div>
-      <div><span>02</span><strong>Hubungi terus</strong><p>WhatsApp atau telefon tanpa borang panjang.</p></div>
-      <div><span>03</span><strong>Berdaftar sejak 2008</strong><p>Dikendalikan oleh CAHAYA SUKMAR.</p></div>
-    </div>
-  </section>
-
-  <section class="section surface-white" aria-labelledby="services-title">
-    <div class="page-shell">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Apa yang kami bantu</p>
-          <h2 id="services-title">Mulakan dengan keperluan sebenar rumah anda.</h2>
+      <figure class="home-hero-photo">
+        <div class="home-hero-photo-frame">
+          <img
+            src="/home-products-hot-cold-hero-v3.webp"
+            width="1536"
+            height="1024"
+            alt="Dispenser air panas dan sejuk tanpa jenama bersama filter seramik, karbon, sedimen dan membran RO"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
         </div>
-        <p>Kami tidak menganggap satu sistem sesuai untuk semua. Ruang, cara penggunaan, model sedia ada dan penyelenggaraan perlu dilihat bersama.</p>
-      </div>
-      <div class="info-grid">
-        <article class="info-item">
-          <span>01 · Pilih</span>
-          <h3>Jualan penapis air</h3>
-          <p>Bincangkan kegunaan, ruang dan cara penjagaan sebelum memilih peralatan penapis air untuk rumah.</p>
-          <a class="text-link" href="/penapis-air-rumah/">Lihat panduan memilih <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="info-item">
-          <span>02 · Jaga</span>
-          <h3>Servis sistem sedia ada</h3>
-          <p>Ada unit lama, aliran perlahan atau kebocoran? Kongsi model dan masalah untuk semakan skop servis.</p>
-          <a class="text-link" href="/servis-penapis-air-pasir-gudang/">Semak servis <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="info-item">
-          <span>03 · Ganti</span>
-          <h3>Semakan filter gantian</h3>
-          <p>Hantar gambar cartridge atau label model. Kami semak kesesuaian terlebih dahulu supaya anda tidak tersalah beli.</p>
-          <a class="text-link" href="/tukar-filter/">Cara semak filter <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
+      </figure>
     </div>
   </section>
 
-  <section class="section needs-section" aria-labelledby="needs-title">
-    <div class="page-shell needs-grid">
-      <div class="needs-copy">
-        <p class="eyebrow">Semakan ringkas</p>
-        <h2 id="needs-title">Tiga perkara yang membantu kami faham situasi anda.</h2>
-        <p class="lede">Gambar dan konteks yang tepat biasanya lebih berguna daripada mesej “berapa harga?” sahaja.</p>
-        <a class="button" href={whatsappUrl('Salam, saya ingin semak penapis air. Lokasi: ____. Jenama/model: ____. Masalah/keperluan: ____.')} target="_blank" rel="noopener">Hantar maklumat sekarang <span aria-hidden="true">↗</span></a>
+  <section id="produk-servis" class="home-services" aria-labelledby="services-title">
+    <div class="page-shell home-services-grid">
+      <div class="home-section-intro">
+        <p class="eyebrow">Produk & servis</p>
+        <h2 id="services-title">Apa yang boleh kami bantu.</h2>
+        <p>Pilih kategori yang paling hampir. Jenama, model, stok dan skop kerja akan disemak sebelum pengesahan.</p>
       </div>
-      <ol class="needs-list">
-        <li><span>Lokasi</span><p>Nyatakan kawasan anda supaya pilihan kunjungan atau langkah seterusnya boleh disemak.</p></li>
-        <li><span>Jenama & model</span><p>Ambil gambar penuh unit dan label model, termasuk filter atau komponen berkaitan.</p></li>
-        <li><span>Keperluan</span><p>Terangkan sama ada anda mahu sistem baharu, filter gantian atau pemeriksaan masalah.</p></li>
-      </ol>
-    </div>
-  </section>
 
-  <section class="section surface-mint" aria-labelledby="process-title">
-    <div class="page-shell">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Proses mudah</p>
-          <h2 id="process-title">Daripada pertanyaan kepada langkah yang jelas.</h2>
-        </div>
-        <p>Tiada borang rumit. Pertanyaan bermula terus melalui WhatsApp atau telefon.</p>
-      </div>
-      <div class="numbered-list">
-        <article class="numbered-item"><h3>Kongsi maklumat</h3><p>Beritahu lokasi, model dan apa yang anda perlukan. Sertakan gambar jika ada.</p></article>
-        <article class="numbered-item"><h3>Kami semak</h3><p>Kami periksa kesesuaian asas, ketersediaan dan perkara yang masih perlu dikenal pasti.</p></article>
-        <article class="numbered-item"><h3>Tentukan seterusnya</h3><p>Dapatkan cadangan untuk datang ke lokasi, semakan lanjut atau skop servis yang sesuai.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section surface-white" aria-labelledby="guides-title">
-    <div class="page-shell">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Panduan tanpa sensasi</p>
-          <h2 id="guides-title">Baca dahulu. Pilih dengan lebih yakin.</h2>
-        </div>
-        <a class="text-link" href="/panduan/">Semua panduan <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="guide-grid">
-        {guides.map((guide) => (
-          <a class="guide-card" href={`/panduan/${guide.slug}/`}>
-            <div class="guide-card-meta"><span>{guide.category}</span><span>{guide.readingTime}</span></div>
-            <h3>{guide.title}</h3>
-            <p>{guide.description}</p>
-            <span class="guide-card-arrow" aria-hidden="true">↗</span>
+      <div class="service-menu">
+        {services.map((service) => (
+          <a href={service.href}>
+            <span>{service.number}</span>
+            <div>
+              <h3>{service.title}</h3>
+              <p>{service.copy}</p>
+            </div>
+            <i aria-hidden="true">→</i>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="about-title">
-    <div class="page-shell split-content">
+  <section class="home-enquiry" aria-labelledby="enquiry-title">
+    <div class="page-shell home-enquiry-grid">
       <div>
-        <p class="eyebrow">Perniagaan di kejiranan anda</p>
-        <h2 id="about-title">Datang untuk produk. Kembali apabila perlu dijaga.</h2>
-        <p class="lede">Penapis Air Kesihatan ialah nama yang dikenali pelanggan bagi perniagaan tempatan di Jalan Intan 12. Fokus kami mudah: bantu pelanggan memilih dan menjaga sistem penapis air dengan komunikasi terus.</p>
-        <a class="text-link" href="/tentang/">Kenali perniagaan <span aria-hidden="true">→</span></a>
+        <p class="eyebrow eyebrow-light">Semakan awal yang mudah</p>
+        <h2 id="enquiry-title">Hantar gambar. Kami semak dahulu.</h2>
       </div>
-      <ul class="fact-list">
-        <li><strong>Alamat</strong><a href={site.directions} target="_blank" rel="noopener">{site.address.display}</a></li>
-        <li><strong>Telefon</strong><a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></li>
-        <li><strong>Operator</strong><span>{site.legalName}</span></li>
-        <li><strong>Pendaftaran</strong><span>{site.registration}</span></li>
-      </ul>
+      <div class="home-enquiry-action">
+        <p>Sertakan lokasi, gambar penuh unit dan label model. Maklumat ringkas ini membantu kami memberi langkah seterusnya dengan lebih tepat.</p>
+        <a class="button button-paper" href={whatsappUrl('Salam, saya ingin semak penapis air. Lokasi: ____. Jenama/model: ____. Keperluan atau masalah: ____.')} target="_blank" rel="noopener">
+          Mulakan pertanyaan <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="section surface-white" aria-labelledby="faq-title">
-    <div class="page-shell faq-layout">
-      <div class="faq-intro">
-        <p class="eyebrow">Soalan biasa</p>
-        <h2 id="faq-title">Jawapan terus sebelum anda hubungi.</h2>
-        <a class="text-link" href="/soalan-lazim/">Lihat semua soalan <span aria-hidden="true">→</span></a>
+  <section class="home-guides" aria-labelledby="guides-title">
+    <div class="page-shell home-guides-grid">
+      <div class="home-section-intro">
+        <p class="eyebrow">Panduan ringkas</p>
+        <h2 id="guides-title">Baca sebelum memilih.</h2>
+        <a class="text-link" href="/panduan/">Semua panduan <span aria-hidden="true">→</span></a>
       </div>
-      <FAQList items={faqs} />
+      <div class="guide-list">
+        {guides.map((guide) => (
+          <a href={`/panduan/${guide.slug}/`}>
+            <span>{guide.category} · {guide.readingTime}</span>
+            <h3>{guide.title}</h3>
+            <i aria-hidden="true">↗</i>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
-
-  <ContactBand
-    heading="Ada gambar penapis anda? Itu sudah cukup untuk bermula."
-    copy="Hantar model, lokasi dan perkara yang anda mahu selesaikan. Kami akan semak apa yang boleh dilakukan seterusnya."
-    message="Salam, saya ingin semak penapis air. Lokasi: ____. Jenama/model: ____. Keperluan atau masalah: ____."
-  />
 </BaseLayout>

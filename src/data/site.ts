@@ -25,9 +25,9 @@ export const site = {
 } as const;
 
 export const nav = [
+  { href: '/penapis-air-rumah/', label: 'Produk penapis' },
+  { href: '/tukar-filter/', label: 'Filter gantian' },
   { href: '/servis-penapis-air-pasir-gudang/', label: 'Servis' },
-  { href: '/penapis-air-rumah/', label: 'Pilih penapis' },
-  { href: '/tukar-filter/', label: 'Tukar filter' },
   { href: '/panduan/', label: 'Panduan' },
   { href: '/tentang/', label: 'Tentang' },
   { href: '/hubungi/', label: 'Hubungi' },
@@ -96,7 +96,7 @@ export const localBusinessSchema = {
   email: site.email,
   foundingDate: '2008-03-24',
   description:
-    'Perniagaan tempatan untuk jualan, pemilihan dan servis penapis air sedia ada di Taman Cahaya Masai, Pasir Gudang.',
+    'Perniagaan tempatan untuk jualan dan servis penapis RO, sistem mineral, dispenser air serta penapis indoor dan outdoor di Taman Cahaya Masai, Pasir Gudang.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.address.street,
@@ -112,14 +112,21 @@ export const localBusinessSchema = {
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
-        name: 'Servis penapis air sedia ada',
+        name: 'Servis penapis air RO, mineral, indoor dan outdoor',
       },
     },
     {
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Product',
-        name: 'Peralatan penapis air',
+        name: 'Penapis air RO, sistem mineral dan dispenser air',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Servis dispenser serta semakan filter dan cartridge gantian',
       },
     },
   ],

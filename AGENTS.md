@@ -9,6 +9,8 @@
 - Public phone and WhatsApp: +60 17-710 6169 (`60177106169` for `wa.me`).
 - Public business email: info@penapisairkesihatan.my.
 - Public evidence supports water-filter sales, selection help, and servicing of existing/older water filters.
+- The owner confirmed on 24 August 2026 that the business sells and services RO and mineral water-filter systems and water dispensers, and services indoor and outdoor home water filters. Brand/model compatibility, parts, stock, pricing and the exact work required must still be checked for each enquiry.
+- Owner records list registered activities covering food and beverage supply, retail goods, food/beverage distribution and packaging, water containers, and water-filter equipment. Registration scope is not proof of the current catalogue, stock, pricing, or availability.
 - Associated public pages:
   - Google Maps: https://www.google.com/maps/?cid=1732927229402855681
   - Facebook: https://www.facebook.com/penapisairMalaysiamurajimat0177106169/
@@ -27,7 +29,7 @@
 - Use Astro static output, semantic HTML, hand-written CSS, and minimal client JavaScript.
 - GitHub Actions builds and deploys the site to GitHub Pages from `main`.
 - Conversion priority: WhatsApp, then phone, then Google Maps directions.
-- Keep the design clean and editorial; avoid generic stock photography, unsupported badges, fake testimonials, excessive cards, gradients, and animation.
+- Keep the design clean, concise, image-balanced and editorial; avoid crowded copy-heavy pages, generic stock photography, unsupported badges, fake testimonials, excessive cards, gradients, and animation.
 
 ## Brand assets
 
@@ -38,6 +40,8 @@
 - Use the full primary logo on white whenever space permits; use icon-only exports for favicons, app icons, avatars, and very small placements.
 - Keep generous clear space. Never alter aspect ratio, rotate, skew, change the relative scale of icon/text, or replace the typography.
 - Website-ready approved assets live in `public/brand-wordmark.png`, `public/brand-logo.png`, `public/brand-logo-transparent.png`, `public/brand-logo-reversed.png`, `public/brand-icon.png`, and `public/favicon.ico`.
+- `public/business-storefront-blue.webp` is an editorial image prepared on 24 August 2026 from the verified exact-business photo `01_worldorgs_google_photo_storefront.jpg` in the owner-connected Google Drive. The dated temporary promotion, camera watermark, right-side unsupported claims, and upper-left green sign were removed; the green-sign area was replaced with plain blue wall at the owner's direction. Treat it as a historical premises image, not proof of current brands, products, prices, or stock.
+- `public/home-products-hot-cold-hero-v3.webp` is an AI-generated product hero image created on 24 August 2026 from current manufacturer documentation for a dual-outlet hot/cold point-of-use dispenser, ceramic candle, carbon block, spun-polypropylene sediment cartridge, and residential 1812 RO membrane proportions. It is intentionally unbranded and illustrative; do not treat it as documentary evidence of current models, brands, products, or stock.
 
 ## Source provenance
 
