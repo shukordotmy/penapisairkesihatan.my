@@ -8,7 +8,7 @@ const guideLastModifiedByPath = Object.fromEntries(
 
 const lastModifiedByPath = {
   '/': '2026-08-24',
-  '/hubungi/': '2026-08-24',
+  '/hubungi/': '2026-08-26',
   '/panduan/': '2026-08-24',
   ...guideLastModifiedByPath,
   '/penapis-air-rumah/': '2026-08-24',

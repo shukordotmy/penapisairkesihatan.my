@@ -13,7 +13,7 @@
 - Owner records list registered activities covering food and beverage supply, retail goods, food/beverage distribution and packaging, water containers, and water-filter equipment. Registration scope is not proof of the current catalogue, stock, pricing, or availability.
 - Associated public pages:
   - Google Maps: https://www.google.com/maps/?cid=1732927229402855681
-  - Facebook: https://www.facebook.com/penapisairMalaysiamurajimat0177106169/
+  - Facebook: https://www.facebook.com/profile.php?id=100085066596278
 
 ## Content safety
 
@@ -51,4 +51,5 @@
 ## Source provenance
 
 - Business facts were grounded on 20 August 2026 in the owner-connected Google Drive company-research folder, plus current public sources.
+- The owner supplied the current Facebook business profile URL on 26 August 2026; it supersedes the previous naming-based Facebook page URL.
 - When facts conflict, owner records and current official sources take priority.

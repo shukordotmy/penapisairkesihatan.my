@@ -21,7 +21,7 @@ export const site = {
   maps: 'https://www.google.com/maps/?cid=1732927229402855681',
   directions:
     'https://www.google.com/maps/dir/?api=1&destination=84%2C%20Jalan%20Intan%2012%2C%20Taman%20Cahaya%20Masai%2C%2081700%20Pasir%20Gudang%2C%20Johor',
-  facebook: 'https://www.facebook.com/penapisairMalaysiamurajimat0177106169/',
+  facebook: 'https://www.facebook.com/profile.php?id=100085066596278',
 } as const;
 
 export const nav = [
